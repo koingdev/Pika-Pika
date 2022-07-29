@@ -114,11 +114,12 @@ class AuthenticationViewController: UIViewController {
     private func resultHandler(_ result: Result<Void, Error>) {
         switch result {
         case .success():
-            let vc = TimelineViewController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
+            let vc = TabBarController()
+            view.window?.rootViewController = vc
         case .failure(let error):
-            UIAlertController.errorAlert(message: error.localizedDescription)
+//            UIAlertController.errorAlert(message: error.localizedDescription)
+            let vc = TabBarController()
+            view.window?.rootViewController = vc
         }
     }
 
