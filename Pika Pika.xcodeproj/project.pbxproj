@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58A2894001C002385F4 /* AppDelegate.swift */; };
+		A27CE58D2894001C002385F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58C2894001C002385F4 /* SceneDelegate.swift */; };
+		A27CE58F2894001C002385F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58E2894001C002385F4 /* ViewController.swift */; };
+		A27CE5922894001C002385F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27CE5902894001C002385F4 /* Main.storyboard */; };
+		A27CE59428940020002385F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59328940020002385F4 /* Assets.xcassets */; };
+		A27CE59728940020002385F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59528940020002385F4 /* LaunchScreen.storyboard */; };
+		A27CE5A228940020002385F4 /* Pika_PikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5A128940020002385F4 /* Pika_PikaTests.swift */; };
+		A27CE5AC28940020002385F4 /* Pika_PikaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5AB28940020002385F4 /* Pika_PikaUITests.swift */; };
+		A27CE5AE28940020002385F4 /* Pika_PikaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5AD28940020002385F4 /* Pika_PikaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A27CE59E28940020002385F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A27CE57F2894001C002385F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A27CE5862894001C002385F4;
+			remoteInfo = "Pika Pika";
+		};
+		A27CE5A828940020002385F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A27CE57F2894001C002385F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A27CE5862894001C002385F4;
+			remoteInfo = "Pika Pika";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A27CE5872894001C002385F4 /* Pika Pika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pika Pika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27CE58A2894001C002385F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A27CE58C2894001C002385F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A27CE58E2894001C002385F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A27CE5912894001C002385F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A27CE59328940020002385F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A27CE59628940020002385F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A27CE59828940020002385F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A27CE59D28940020002385F4 /* Pika PikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pika PikaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27CE5A128940020002385F4 /* Pika_PikaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pika_PikaTests.swift; sourceTree = "<group>"; };
+		A27CE5A728940020002385F4 /* Pika PikaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pika PikaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A27CE5AB28940020002385F4 /* Pika_PikaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pika_PikaUITests.swift; sourceTree = "<group>"; };
+		A27CE5AD28940020002385F4 /* Pika_PikaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pika_PikaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A27CE5842894001C002385F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A27CE59A28940020002385F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A27CE5A428940020002385F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A27CE57E2894001C002385F4 = {
+			isa = PBXGroup;
+			children = (
+				A27CE5892894001C002385F4 /* Pika Pika */,
+				A27CE5A028940020002385F4 /* Pika PikaTests */,
+				A27CE5AA28940020002385F4 /* Pika PikaUITests */,
+				A27CE5882894001C002385F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A27CE5882894001C002385F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5872894001C002385F4 /* Pika Pika.app */,
+				A27CE59D28940020002385F4 /* Pika PikaTests.xctest */,
+				A27CE5A728940020002385F4 /* Pika PikaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A27CE5892894001C002385F4 /* Pika Pika */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE58A2894001C002385F4 /* AppDelegate.swift */,
+				A27CE58C2894001C002385F4 /* SceneDelegate.swift */,
+				A27CE58E2894001C002385F4 /* ViewController.swift */,
+				A27CE5902894001C002385F4 /* Main.storyboard */,
+				A27CE59328940020002385F4 /* Assets.xcassets */,
+				A27CE59528940020002385F4 /* LaunchScreen.storyboard */,
+				A27CE59828940020002385F4 /* Info.plist */,
+			);
+			path = "Pika Pika";
+			sourceTree = "<group>";
+		};
+		A27CE5A028940020002385F4 /* Pika PikaTests */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5A128940020002385F4 /* Pika_PikaTests.swift */,
+			);
+			path = "Pika PikaTests";
+			sourceTree = "<group>";
+		};
+		A27CE5AA28940020002385F4 /* Pika PikaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5AB28940020002385F4 /* Pika_PikaUITests.swift */,
+				A27CE5AD28940020002385F4 /* Pika_PikaUITestsLaunchTests.swift */,
+			);
+			path = "Pika PikaUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A27CE5862894001C002385F4 /* Pika Pika */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A27CE5B128940020002385F4 /* Build configuration list for PBXNativeTarget "Pika Pika" */;
+			buildPhases = (
+				A27CE5832894001C002385F4 /* Sources */,
+				A27CE5842894001C002385F4 /* Frameworks */,
+				A27CE5852894001C002385F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pika Pika";
+			productName = "Pika Pika";
+			productReference = A27CE5872894001C002385F4 /* Pika Pika.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A27CE59C28940020002385F4 /* Pika PikaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A27CE5B428940020002385F4 /* Build configuration list for PBXNativeTarget "Pika PikaTests" */;
+			buildPhases = (
+				A27CE59928940020002385F4 /* Sources */,
+				A27CE59A28940020002385F4 /* Frameworks */,
+				A27CE59B28940020002385F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A27CE59F28940020002385F4 /* PBXTargetDependency */,
+			);
+			name = "Pika PikaTests";
+			productName = "Pika PikaTests";
+			productReference = A27CE59D28940020002385F4 /* Pika PikaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A27CE5A628940020002385F4 /* Pika PikaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A27CE5B728940020002385F4 /* Build configuration list for PBXNativeTarget "Pika PikaUITests" */;
+			buildPhases = (
+				A27CE5A328940020002385F4 /* Sources */,
+				A27CE5A428940020002385F4 /* Frameworks */,
+				A27CE5A528940020002385F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A27CE5A928940020002385F4 /* PBXTargetDependency */,
+			);
+			name = "Pika PikaUITests";
+			productName = "Pika PikaUITests";
+			productReference = A27CE5A728940020002385F4 /* Pika PikaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A27CE57F2894001C002385F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					A27CE5862894001C002385F4 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					A27CE59C28940020002385F4 = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = A27CE5862894001C002385F4;
+					};
+					A27CE5A628940020002385F4 = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = A27CE5862894001C002385F4;
+					};
+				};
+			};
+			buildConfigurationList = A27CE5822894001C002385F4 /* Build configuration list for PBXProject "Pika Pika" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A27CE57E2894001C002385F4;
+			productRefGroup = A27CE5882894001C002385F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A27CE5862894001C002385F4 /* Pika Pika */,
+				A27CE59C28940020002385F4 /* Pika PikaTests */,
+				A27CE5A628940020002385F4 /* Pika PikaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A27CE5852894001C002385F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A27CE59728940020002385F4 /* LaunchScreen.storyboard in Resources */,
+				A27CE59428940020002385F4 /* Assets.xcassets in Resources */,
+				A27CE5922894001C002385F4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A27CE59B28940020002385F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A27CE5A528940020002385F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A27CE5832894001C002385F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A27CE58F2894001C002385F4 /* ViewController.swift in Sources */,
+				A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */,
+				A27CE58D2894001C002385F4 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A27CE59928940020002385F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A27CE5A228940020002385F4 /* Pika_PikaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A27CE5A328940020002385F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A27CE5AE28940020002385F4 /* Pika_PikaUITestsLaunchTests.swift in Sources */,
+				A27CE5AC28940020002385F4 /* Pika_PikaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A27CE59F28940020002385F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A27CE5862894001C002385F4 /* Pika Pika */;
+			targetProxy = A27CE59E28940020002385F4 /* PBXContainerItemProxy */;
+		};
+		A27CE5A928940020002385F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A27CE5862894001C002385F4 /* Pika Pika */;
+			targetProxy = A27CE5A828940020002385F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A27CE5902894001C002385F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A27CE5912894001C002385F4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A27CE59528940020002385F4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A27CE59628940020002385F4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A27CE5AF28940020002385F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A27CE5B028940020002385F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A27CE5B228940020002385F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MM23294F8G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pika Pika/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koing.dev.Pika-Pika";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A27CE5B328940020002385F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MM23294F8G;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pika Pika/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koing.dev.Pika-Pika";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A27CE5B528940020002385F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MM23294F8G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koing.dev.Pika-PikaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pika Pika.app/Pika Pika";
+			};
+			name = Debug;
+		};
+		A27CE5B628940020002385F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MM23294F8G;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koing.dev.Pika-PikaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pika Pika.app/Pika Pika";
+			};
+			name = Release;
+		};
+		A27CE5B828940020002385F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MM23294F8G;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koing.dev.Pika-PikaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pika Pika";
+			};
+			name = Debug;
+		};
+		A27CE5B928940020002385F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MM23294F8G;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "koing.dev.Pika-PikaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pika Pika";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A27CE5822894001C002385F4 /* Build configuration list for PBXProject "Pika Pika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A27CE5AF28940020002385F4 /* Debug */,
+				A27CE5B028940020002385F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A27CE5B128940020002385F4 /* Build configuration list for PBXNativeTarget "Pika Pika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A27CE5B228940020002385F4 /* Debug */,
+				A27CE5B328940020002385F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A27CE5B428940020002385F4 /* Build configuration list for PBXNativeTarget "Pika PikaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A27CE5B528940020002385F4 /* Debug */,
+				A27CE5B628940020002385F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A27CE5B728940020002385F4 /* Build configuration list for PBXNativeTarget "Pika PikaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A27CE5B828940020002385F4 /* Debug */,
+				A27CE5B928940020002385F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A27CE57F2894001C002385F4 /* Project object */;
+}
