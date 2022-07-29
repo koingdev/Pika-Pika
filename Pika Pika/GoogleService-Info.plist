@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>757357097605-oec3g668e1f8eg4gunpbmb3qhii4bje1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.757357097605-oec3g668e1f8eg4gunpbmb3qhii4bje1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCX0glUk6sOwUFFM9Q9ZIstJR6BYXI6N7Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>757357097605</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>koing.dev.Pika-Pika</string>
+	<key>PROJECT_ID</key>
+	<string>pika-pika-d7f5e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pika-pika-d7f5e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:757357097605:ios:8061e8030d49ff24696fec</string>
+</dict>
+</plist>

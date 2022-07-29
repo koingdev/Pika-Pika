@@ -8,11 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58A2894001C002385F4 /* AppDelegate.swift */; };
-		A27CE58F2894001C002385F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58E2894001C002385F4 /* ViewController.swift */; };
+		A27CE58F2894001C002385F4 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58E2894001C002385F4 /* AuthenticationViewController.swift */; };
 		A27CE5922894001C002385F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27CE5902894001C002385F4 /* Main.storyboard */; };
 		A27CE59428940020002385F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59328940020002385F4 /* Assets.xcassets */; };
 		A27CE59728940020002385F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59528940020002385F4 /* LaunchScreen.storyboard */; };
 		A27CE5A228940020002385F4 /* Pika_PikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5A128940020002385F4 /* Pika_PikaTests.swift */; };
+		A27CE5BF28940B0D002385F4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A27CE5BE28940B0D002385F4 /* SnapKit */; };
+		A27CE5C12894106B002385F4 /* UIColorX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5C02894106B002385F4 /* UIColorX.swift */; };
+		A27CE5C4289418B8002385F4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A27CE5C3289418B8002385F4 /* FirebaseAuth */; };
+		A27CE5C628941A25002385F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A27CE5C528941A25002385F4 /* GoogleService-Info.plist */; };
+		A27CE5C928941E69002385F4 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5C828941E69002385F4 /* FirebaseAuthManager.swift */; };
+		A27CE5D2289425EE002385F4 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5D1289425EE002385F4 /* AuthenticationViewModel.swift */; };
+		A27CE5D6289438A3002385F4 /* UIControlEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */; };
+		A27CE5D928943BF0002385F4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5D828943BF0002385F4 /* Error.swift */; };
+		A27CE5DB28943D39002385F4 /* UIAlertX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5DA28943D39002385F4 /* UIAlertX.swift */; };
+		A27CE5DF2894430C002385F4 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5DE2894430C002385F4 /* TimelineViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +38,21 @@
 /* Begin PBXFileReference section */
 		A27CE5872894001C002385F4 /* Pika Pika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pika Pika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27CE58A2894001C002385F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A27CE58E2894001C002385F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A27CE58E2894001C002385F4 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		A27CE5912894001C002385F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A27CE59328940020002385F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A27CE59628940020002385F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A27CE59828940020002385F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A27CE59D28940020002385F4 /* Pika PikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pika PikaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27CE5A128940020002385F4 /* Pika_PikaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pika_PikaTests.swift; sourceTree = "<group>"; };
+		A27CE5C02894106B002385F4 /* UIColorX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorX.swift; sourceTree = "<group>"; };
+		A27CE5C528941A25002385F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A27CE5C828941E69002385F4 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		A27CE5D1289425EE002385F4 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlEventHandler.swift; sourceTree = "<group>"; };
+		A27CE5D828943BF0002385F4 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		A27CE5DA28943D39002385F4 /* UIAlertX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertX.swift; sourceTree = "<group>"; };
+		A27CE5DE2894430C002385F4 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A27CE5BF28940B0D002385F4 /* SnapKit in Frameworks */,
+				A27CE5C4289418B8002385F4 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,11 +96,17 @@
 		A27CE5892894001C002385F4 /* Pika Pika */ = {
 			isa = PBXGroup;
 			children = (
+				A27CE5D428943892002385F4 /* Utilities */,
+				A27CE5BA289407A8002385F4 /* Extensions */,
+				A27CE5C728941E50002385F4 /* Managers */,
+				A27CE5D728943BDA002385F4 /* Models */,
+				A27CE5D0289425D9002385F4 /* ViewModels */,
+				A27CE5CF289425C2002385F4 /* Views */,
 				A27CE58A2894001C002385F4 /* AppDelegate.swift */,
-				A27CE58E2894001C002385F4 /* ViewController.swift */,
 				A27CE5902894001C002385F4 /* Main.storyboard */,
 				A27CE59328940020002385F4 /* Assets.xcassets */,
 				A27CE59528940020002385F4 /* LaunchScreen.storyboard */,
+				A27CE5C528941A25002385F4 /* GoogleService-Info.plist */,
 				A27CE59828940020002385F4 /* Info.plist */,
 			);
 			path = "Pika Pika";
@@ -92,6 +118,56 @@
 				A27CE5A128940020002385F4 /* Pika_PikaTests.swift */,
 			);
 			path = "Pika PikaTests";
+			sourceTree = "<group>";
+		};
+		A27CE5BA289407A8002385F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5C02894106B002385F4 /* UIColorX.swift */,
+				A27CE5DA28943D39002385F4 /* UIAlertX.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A27CE5C728941E50002385F4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5C828941E69002385F4 /* FirebaseAuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A27CE5CF289425C2002385F4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE58E2894001C002385F4 /* AuthenticationViewController.swift */,
+				A27CE5DE2894430C002385F4 /* TimelineViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A27CE5D0289425D9002385F4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5D1289425EE002385F4 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A27CE5D428943892002385F4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A27CE5D728943BDA002385F4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5D828943BF0002385F4 /* Error.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +186,10 @@
 			dependencies = (
 			);
 			name = "Pika Pika";
+			packageProductDependencies = (
+				A27CE5BE28940B0D002385F4 /* SnapKit */,
+				A27CE5C3289418B8002385F4 /* FirebaseAuth */,
+			);
 			productName = "Pika Pika";
 			productReference = A27CE5872894001C002385F4 /* Pika Pika.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +240,10 @@
 				Base,
 			);
 			mainGroup = A27CE57E2894001C002385F4;
+			packageReferences = (
+				A27CE5BD28940B0D002385F4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A27CE5C2289418B8002385F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = A27CE5882894001C002385F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A27CE59728940020002385F4 /* LaunchScreen.storyboard in Resources */,
+				A27CE5C628941A25002385F4 /* GoogleService-Info.plist in Resources */,
 				A27CE59428940020002385F4 /* Assets.xcassets in Resources */,
 				A27CE5922894001C002385F4 /* Main.storyboard in Resources */,
 			);
@@ -195,8 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A27CE58F2894001C002385F4 /* ViewController.swift in Sources */,
+				A27CE58F2894001C002385F4 /* AuthenticationViewController.swift in Sources */,
+				A27CE5D6289438A3002385F4 /* UIControlEventHandler.swift in Sources */,
+				A27CE5D2289425EE002385F4 /* AuthenticationViewModel.swift in Sources */,
+				A27CE5C928941E69002385F4 /* FirebaseAuthManager.swift in Sources */,
 				A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */,
+				A27CE5D928943BF0002385F4 /* Error.swift in Sources */,
+				A27CE5C12894106B002385F4 /* UIColorX.swift in Sources */,
+				A27CE5DB28943D39002385F4 /* UIAlertX.swift in Sources */,
+				A27CE5DF2894430C002385F4 /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -342,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -479,6 +571,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A27CE5BD28940B0D002385F4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		A27CE5C2289418B8002385F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A27CE5BE28940B0D002385F4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A27CE5BD28940B0D002385F4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		A27CE5C3289418B8002385F4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A27CE5C2289418B8002385F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A27CE57F2894001C002385F4 /* Project object */;
 }
