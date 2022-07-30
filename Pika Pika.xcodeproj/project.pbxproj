@@ -38,6 +38,7 @@
 		A27CE6092895088A002385F4 /* BottomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE6082895088A002385F4 /* BottomLabelView.swift */; };
 		A27CE60B28950D4F002385F4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE60A28950D4F002385F4 /* RegisterViewController.swift */; };
 		A27CE60D289517B9002385F4 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE60C289517B9002385F4 /* TimelineViewModel.swift */; };
+		A27CE60F28954A0B002385F4 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE60E28954A0B002385F4 /* AddNewPostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		A27CE6082895088A002385F4 /* BottomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLabelView.swift; sourceTree = "<group>"; };
 		A27CE60A28950D4F002385F4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A27CE60C289517B9002385F4 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		A27CE60E28954A0B002385F4 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				A27CE5E3289447A6002385F4 /* TabBarController.swift */,
 				A27CE5DE2894430C002385F4 /* TimelineViewController.swift */,
 				A27CE5E928944E8D002385F4 /* AccountViewController.swift */,
+				A27CE60E28954A0B002385F4 /* AddNewPostViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				A27CE5D6289438A3002385F4 /* UIControlEventHandler.swift in Sources */,
 				A27CE5EF2894C195002385F4 /* TextField.swift in Sources */,
 				A27CE6052894F82D002385F4 /* TimelineService.swift in Sources */,
+				A27CE60F28954A0B002385F4 /* AddNewPostViewController.swift in Sources */,
 				A27CE5EA28944E8D002385F4 /* AccountViewController.swift in Sources */,
 				A27CE5E628944830002385F4 /* UIViewX.swift in Sources */,
 				A27CE5E828944C8E002385F4 /* UIWindowX.swift in Sources */,
