@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     }
     
     open var stackChildrens: [UIView] {
-        [emailTextField, passwordTextField, forgotPasswordLabel, authenticateButton]
+        [emailTextField, passwordTextField, authenticateButton]
     }
     
     open func authenticate() {
@@ -80,15 +80,6 @@ class LoginViewController: UIViewController {
         textField.isSecureTextEntry = true
         textField.snp.makeConstraints { $0.height.equalTo(48) }
         return textField
-    }()
-    
-    private lazy var forgotPasswordLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .secondaryLabel
-        label.textAlignment = .right
-        label.font = .systemFont(ofSize: 15)
-        label.text = "Forgot password?"
-        return label
     }()
     
     private(set) lazy var authenticateButton: UIButton = {
