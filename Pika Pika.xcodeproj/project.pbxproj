@@ -37,6 +37,7 @@
 		A27CE6052894F82D002385F4 /* TimelineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE6042894F82D002385F4 /* TimelineService.swift */; };
 		A27CE6092895088A002385F4 /* BottomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE6082895088A002385F4 /* BottomLabelView.swift */; };
 		A27CE60B28950D4F002385F4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE60A28950D4F002385F4 /* RegisterViewController.swift */; };
+		A27CE60D289517B9002385F4 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE60C289517B9002385F4 /* TimelineViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		A27CE6042894F82D002385F4 /* TimelineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineService.swift; sourceTree = "<group>"; };
 		A27CE6082895088A002385F4 /* BottomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomLabelView.swift; sourceTree = "<group>"; };
 		A27CE60A28950D4F002385F4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A27CE60C289517B9002385F4 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				A27CE5D1289425EE002385F4 /* AuthenticationViewModel.swift */,
+				A27CE60C289517B9002385F4 /* TimelineViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				A27CE5D928943BF0002385F4 /* Error.swift in Sources */,
 				A27CE5FF2894F31F002385F4 /* UserService.swift in Sources */,
 				A27CE5C12894106B002385F4 /* UIColorX.swift in Sources */,
+				A27CE60D289517B9002385F4 /* TimelineViewModel.swift in Sources */,
 				A27CE6092895088A002385F4 /* BottomLabelView.swift in Sources */,
 				A27CE6032894F4FD002385F4 /* Feed.swift in Sources */,
 				A27CE5DB28943D39002385F4 /* UIAlertX.swift in Sources */,

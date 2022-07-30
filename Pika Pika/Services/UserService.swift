@@ -16,7 +16,7 @@ protocol UserServiceType {
 final class UserService: UserServiceType {
     func save(data: [String: Any]) async -> Result<Void, Error> {
         do {
-            guard let uid = Auth.auth().currentUser?.uid else { return .failure(AppError.userNotFound) }
+            guard let uid = FirebaseAuthService.currentUser?.uid else { return .failure(AppError.userNotFound) }
 
             try await Firestore.firestore()
                 .collection("users")
@@ -25,6 +25,7 @@ final class UserService: UserServiceType {
             
             return .success(())
         } catch {
+            debugPrint("Error: \(error.localizedDescription)")
             return .failure(error)
         }
     }
@@ -39,6 +40,7 @@ final class UserService: UserServiceType {
             let user = try snapshot.data(as: User.self)
             return user
         } catch {
+            debugPrint("Error: \(error.localizedDescription)")
             return nil
         }
     }

@@ -9,6 +9,8 @@ import Foundation
 
 final class AuthenticationViewModel {
 
+    private var loggedInUser: User?
+    
     private let authService: FirebaseAuthServiceType
     private let userService: UserServiceType
     
@@ -19,14 +21,25 @@ final class AuthenticationViewModel {
         self.authService = authService
         self.userService = userService
         
-        authService.logout()
+        fetchUserIfFirebaseLoggedIn()
     }
     
     func login(email: String, password: String) async -> Result<Void, Error> {
         guard isValid(email: email, password: password) else {
             return .failure(AppError.invalidInput)
         }
-        return await authService.login(email: email, password: password)
+
+        let result = await authService.login(email: email, password: password)
+        switch result {
+        case .success(let uid):
+            if let user = await userService.fetch(withUID: uid) {
+                loggedInUser = user
+            }
+            return .success(())
+
+        case .failure(let error):
+            return .failure(error)
+        }
     }
     
     func register(email: String, password: String, fullname: String) async -> Result<Void, Error> {
@@ -47,8 +60,18 @@ final class AuthenticationViewModel {
         }
     }
     
+    func fetchUserIfFirebaseLoggedIn() {
+        if let uid = FirebaseAuthService.currentUser?.uid {
+            Task {
+                if let user = await userService.fetch(withUID: uid) {
+                    loggedInUser = user
+                }
+            }
+        }
+    }
+    
     func isLoggedIn() -> Bool {
-        authService.isLoggedIn
+        FirebaseAuthService.isLoggedIn
     }
     
     func isValid(email: String, password: String) -> Bool {

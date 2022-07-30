@@ -9,20 +9,20 @@ import FirebaseFirestore
 import Firebase
 
 protocol TimelineServiceType {
-    func post(description: String) async -> Result<Void, Error>
+    func post(feed: Feed) async -> Result<Void, Error>
     func fetchAll() async -> Result<[Feed], Error>
     func fetchAll(withUID uid: String) async -> Result<[Feed], Error>
 }
 
-final class TimelineService {
+final class TimelineService: TimelineServiceType {
     
-    func post(description: String) async -> Result<Void, Error> {
+    func post(feed: Feed) async -> Result<Void, Error> {
         do {
-            guard let uid = Auth.auth().currentUser?.uid else { return .failure(AppError.userNotFound) }
+            guard let uid = FirebaseAuthService.currentUser?.uid else { return .failure(AppError.userNotFound) }
             
             let data = ["uid": uid,
-                        "description": description,
-                        "timestamp": Timestamp(date: Date())] as [String: Any]
+                        "description": feed.description,
+                        "timestamp": feed.timestamp] as [String: Any]
             
             try await Firestore.firestore()
                 .collection("feeds")
@@ -31,6 +31,7 @@ final class TimelineService {
             
             return .success(())
         } catch {
+            debugPrint("Error: \(error.localizedDescription)")
             return .failure(error)
         }
     }
@@ -45,6 +46,7 @@ final class TimelineService {
             let feeds = try snapshot.documents.compactMap { try $0.data(as: Feed.self) }
             return .success(feeds)
         } catch {
+            debugPrint("Error: \(error.localizedDescription)")
             return .failure(error)
         }
     }
@@ -60,6 +62,7 @@ final class TimelineService {
             let feeds = try snapshot.documents.compactMap { try $0.data(as: Feed.self) }
             return .success(feeds)
         } catch {
+            debugPrint("Error: \(error.localizedDescription)")
             return .failure(error)
         }
     }

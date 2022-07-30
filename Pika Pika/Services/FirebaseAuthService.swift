@@ -9,23 +9,29 @@ import Foundation
 import FirebaseAuth
 
 protocol FirebaseAuthServiceType {
-    var isLoggedIn: Bool { get }
+    static var isLoggedIn: Bool { get }
+    static var currentUser: FirebaseAuth.User? { get }
+    func login(email: String, password: String) async -> Result<String, Error>
     func register(email: String, password: String) async -> Result<String, Error>
-    func login(email: String, password: String) async -> Result<Void, Error>
     func logout()
 }
 
 final class FirebaseAuthService: FirebaseAuthServiceType {
 
-    var isLoggedIn: Bool {
-        Auth.auth().currentUser != nil
+    static var isLoggedIn: Bool {
+        currentUser != nil
+    }
+    
+    static var currentUser: FirebaseAuth.User? {
+        Auth.auth().currentUser
     }
 
-    func login(email: String, password: String) async -> Result<Void, Error> {
+    func login(email: String, password: String) async -> Result<String, Error> {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
-            debugPrint("Login: \(result.user.uid)")
-            return .success(())
+            let uid = result.user.uid
+            debugPrint("Login: \(uid)")
+            return .success((uid))
         } catch {
             debugPrint("Error: \(error.localizedDescription)")
             return .failure(error)

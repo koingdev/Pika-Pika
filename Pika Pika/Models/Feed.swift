@@ -16,3 +16,9 @@ struct Feed: Decodable {
     
     var user: User?
 }
+
+extension Feed {
+    static func make(description: String, uid: String) -> Self {
+        return Feed(description: description, timestamp: Timestamp(date: Date()), uid: uid)
+    }
+}

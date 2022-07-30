@@ -15,7 +15,10 @@ final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUp()
+    }
+    
+    private func setUp() {
         // Style
         let appearance = UITabBarAppearance()
         appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
@@ -41,8 +44,8 @@ final class TabBarController: UITabBarController {
         viewControllers = [timelineVC, accountVC]
         
         // Action
-        postButton.on(.touchUpInside) { _ in
-            debugPrint("Post")
+        postButton.on(.touchUpInside) { [weak self] _ in
+            self?.timelineVC.addNewFeed(description: "new feed")
         }
     }
 }

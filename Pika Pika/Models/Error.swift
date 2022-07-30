@@ -10,4 +10,5 @@ import Foundation
 enum AppError: Error {
     case invalidInput
     case userNotFound
+    case failedToFetchUser
 }
