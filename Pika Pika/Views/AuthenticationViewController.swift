@@ -17,24 +17,41 @@ class AuthenticationViewController: UIViewController {
     //MARK: - UI Components
     ////////////////////////////////////////////////////////////////
     
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "PikachuWelcome"))
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.bottom.equalTo(stackView.snp_topMargin).offset(-20)
+            make.centerX.equalToSuperview().offset(20)
+            make.height.equalTo(200)
+        }
+        return imageView
+    }()
 
-    private lazy var emailTextField: UITextField = {
-        let textField = UITextField()
+    private lazy var emailTextField: TextField = {
+        let textField = TextField(placeholder: "Email", leftIcon: UIImage(systemName: "envelope.fill"))
         textField.autocapitalizationType = .none
         textField.keyboardType = .emailAddress
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Email"
         textField.snp.makeConstraints { $0.height.equalTo(48) }
         return textField
     }()
     
-    private lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
+    private lazy var passwordTextField: TextField = {
+        let textField = TextField(placeholder: "Password", leftIcon: UIImage(systemName: "lock.fill"))
         textField.isSecureTextEntry = true
-        textField.borderStyle = .roundedRect
-        textField.placeholder = "Password"
         textField.snp.makeConstraints { $0.height.equalTo(48) }
         return textField
+    }()
+    
+    private lazy var forgotPasswordLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .secondaryLabel
+        label.textAlignment = .right
+        label.font = .systemFont(ofSize: 15)
+        label.text = "Forgot password?"
+        return label
     }()
     
     private lazy var loginButton: UIButton = {
@@ -58,16 +75,44 @@ class AuthenticationViewController: UIViewController {
         return button
     }()
     
+    private lazy var divider: UIView = {
+        let line1 = UIView()
+        let line2 = UIView()
+        [line1, line2].forEach {
+            $0.backgroundColor = .separator
+            $0.snp.makeConstraints { make in
+                make.height.equalTo(1)
+            }
+        }
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 15)
+        label.snp.makeConstraints { make in
+            make.width.height.equalTo(24)
+        }
+        label.text = "OR"
+        let stack = UIStackView(arrangedSubviews: [line1, label, line2])
+        stack.axis = .horizontal
+        stack.spacing = 6
+        stack.distribution = .fill
+        stack.alignment = .center
+        line1.snp.makeConstraints { make in
+            make.width.equalTo(line2.snp.width)
+        }
+        return stack
+    }()
+    
     private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, registerButton])
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, forgotPasswordLabel, loginButton, registerButton, divider])
         stack.axis = .vertical
         stack.spacing = 18
-        stack.distribution = .equalSpacing
+        stack.distribution = .fill
         view.addSubview(stack)
         stack.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
-            make.centerY.equalToSuperview()
+            make.centerY.equalToSuperview().offset(60)
         }
         return stack
     }()
@@ -93,6 +138,7 @@ class AuthenticationViewController: UIViewController {
     private func configureUI() {
         view.backgroundColor = .systemBackground
         _ = stackView
+        _ = imageView
     }
     
     private func configureActions() {

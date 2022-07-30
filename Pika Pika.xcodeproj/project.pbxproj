@@ -28,6 +28,7 @@
 		A27CE5E828944C8E002385F4 /* UIWindowX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5E728944C8E002385F4 /* UIWindowX.swift */; };
 		A27CE5EA28944E8D002385F4 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5E928944E8D002385F4 /* AccountViewController.swift */; };
 		A27CE5ED28945167002385F4 /* PikachuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5EC28945167002385F4 /* PikachuButton.swift */; };
+		A27CE5EF2894C195002385F4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5EE2894C195002385F4 /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		A27CE5E728944C8E002385F4 /* UIWindowX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowX.swift; sourceTree = "<group>"; };
 		A27CE5E928944E8D002385F4 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		A27CE5EC28945167002385F4 /* PikachuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PikachuButton.swift; sourceTree = "<group>"; };
+		A27CE5EE2894C195002385F4 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,6 @@
 			children = (
 				A27CE5BA289407A8002385F4 /* Extensions */,
 				A27CE5EB28945122002385F4 /* Components */,
-				A27CE5D428943892002385F4 /* Utilities */,
 				A27CE5C728941E50002385F4 /* Managers */,
 				A27CE5D728943BDA002385F4 /* Models */,
 				A27CE5D0289425D9002385F4 /* ViewModels */,
@@ -138,6 +139,7 @@
 				A27CE5DA28943D39002385F4 /* UIAlertX.swift */,
 				A27CE5E528944830002385F4 /* UIViewX.swift */,
 				A27CE5E728944C8E002385F4 /* UIWindowX.swift */,
+				A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,14 +171,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		A27CE5D428943892002385F4 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		A27CE5D728943BDA002385F4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				A27CE5EC28945167002385F4 /* PikachuButton.swift */,
+				A27CE5EE2894C195002385F4 /* TextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -306,6 +301,7 @@
 				A27CE58F2894001C002385F4 /* AuthenticationViewController.swift in Sources */,
 				A27CE5ED28945167002385F4 /* PikachuButton.swift in Sources */,
 				A27CE5D6289438A3002385F4 /* UIControlEventHandler.swift in Sources */,
+				A27CE5EF2894C195002385F4 /* TextField.swift in Sources */,
 				A27CE5EA28944E8D002385F4 /* AccountViewController.swift in Sources */,
 				A27CE5E628944830002385F4 /* UIViewX.swift in Sources */,
 				A27CE5E828944C8E002385F4 /* UIWindowX.swift in Sources */,
