@@ -12,10 +12,23 @@ import FirebaseCore
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private lazy var authViewModel = AuthenticationViewModel()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        FirebaseApp.configure()    
+        // Firebase
+        FirebaseApp.configure()
+        
+        // Root
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        // Check previous session
+        if authViewModel.isLoggedIn() {
+            window?.rootViewController = TabBarController()
+        } else {
+            window?.rootViewController = LoginViewController(viewModel: authViewModel)
+        }
+        window?.makeKeyAndVisible()
         
         return true
     }

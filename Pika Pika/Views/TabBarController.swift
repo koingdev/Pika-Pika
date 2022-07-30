@@ -41,7 +41,7 @@ final class TabBarController: UITabBarController {
         viewControllers = [timelineVC, accountVC]
         
         // Action
-        postButton.on(.touchUpInside) { [unowned self]  _ in
+        postButton.on(.touchUpInside) { _ in
             debugPrint("Post")
         }
     }

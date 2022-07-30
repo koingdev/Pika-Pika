@@ -7,13 +7,7 @@
 
 import Foundation
 
-enum AuthError: Error, CustomStringConvertible {
+enum AppError: Error {
     case invalidInput
-    
-    var description: String {
-        switch self {
-        case .invalidInput:
-            return "The provided input is not valid."
-        }
-    }
+    case userNotFound
 }

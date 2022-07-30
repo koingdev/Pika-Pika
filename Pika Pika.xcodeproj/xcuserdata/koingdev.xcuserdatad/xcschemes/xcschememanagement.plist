@@ -16,6 +16,20 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>Promises (Playground) 10.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
+		<key>Promises (Playground) 11.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
 		<key>Promises (Playground) 2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -43,6 +57,34 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>12</integer>
+		</dict>
+		<key>Promises (Playground) 6.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
+		<key>Promises (Playground) 7.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>Promises (Playground) 8.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
+		<key>Promises (Playground) 9.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>22</integer>
 		</dict>
 		<key>Promises (Playground).xcscheme</key>
 		<dict>
@@ -106,6 +148,27 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>15</integer>
+		</dict>
+		<key>SnapKitPlayground (Playground) 6.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+		<key>SnapKitPlayground (Playground) 7.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
+		<key>SnapKitPlayground (Playground) 8.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>18</integer>
 		</dict>
 		<key>SnapKitPlayground (Playground).xcscheme</key>
 		<dict>
