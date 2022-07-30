@@ -9,7 +9,8 @@ import Foundation
 
 final class AuthenticationViewModel {
 
-    private var loggedInUser: User?
+    /// This can be shared globally in a thread-safe manner
+    @Atomic private(set) static var loggedInUser: User?
     
     private let authService: FirebaseAuthServiceType
     private let userService: UserServiceType
@@ -33,7 +34,7 @@ final class AuthenticationViewModel {
         switch result {
         case .success(let uid):
             if let user = await userService.fetch(withUID: uid) {
-                loggedInUser = user
+                Self.loggedInUser = user
             }
             return .success(())
 
@@ -64,7 +65,7 @@ final class AuthenticationViewModel {
         if let uid = FirebaseAuthService.currentUser?.uid {
             Task {
                 if let user = await userService.fetch(withUID: uid) {
-                    loggedInUser = user
+                    Self.loggedInUser = user
                 }
             }
         }

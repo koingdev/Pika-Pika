@@ -20,9 +20,12 @@ final class TimelineService: TimelineServiceType {
         do {
             guard let uid = FirebaseAuthService.currentUser?.uid else { return .failure(AppError.userNotFound) }
             
-            let data = ["uid": uid,
-                        "description": feed.description,
-                        "timestamp": feed.timestamp] as [String: Any]
+            let data = [
+                "uid": uid,
+                "description": feed.description,
+                "timestamp": feed.timestamp,
+                "fullname": feed.fullname
+            ] as [String: Any]
             
             try await Firestore.firestore()
                 .collection("feeds")

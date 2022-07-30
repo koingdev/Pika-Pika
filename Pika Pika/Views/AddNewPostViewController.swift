@@ -25,7 +25,7 @@ final class AddNewPostViewController: UIViewController {
         textView.isEditable = true
         view.addSubview(textView)
         textView.snp.makeConstraints { make in
-            make.leading.trailing.bottomMargin.equalToSuperview().offset(20)
+            make.leading.trailing.bottomMargin.equalToSuperview().inset(20)
         }
         return textView
     }()
@@ -53,8 +53,7 @@ final class AddNewPostViewController: UIViewController {
         stack.distribution = .equalCentering
         view.addSubview(stack)
         stack.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().offset(18)
-            make.trailing.equalToSuperview().offset(-18)
+            make.top.leading.trailing.equalToSuperview().inset(18)
             make.bottom.equalTo(textView.snp.top)
             make.height.equalTo(44)
         }

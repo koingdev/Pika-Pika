@@ -14,11 +14,12 @@ struct Feed: Decodable {
     let timestamp: Timestamp
     let uid: String
     
-    var user: User?
+    // Denormalization for read performance
+    var fullname: String
 }
 
 extension Feed {
-    static func make(description: String, uid: String) -> Self {
-        return Feed(description: description, timestamp: Timestamp(date: Date()), uid: uid)
+    static func make(description: String, uid: String, fullname: String) -> Self {
+        return Feed(description: description, timestamp: Timestamp(date: Date()), uid: uid, fullname: fullname)
     }
 }

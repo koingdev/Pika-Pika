@@ -15,13 +15,32 @@ final class TimelineViewController: UIViewController {
     
     private let viewModel = TimelineViewModel()
     
+    private lazy var brandingImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "PikaPika")
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(44)
+        }
+        return imageView
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
+        tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "\(FeedTableViewCell.self)")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.separatorInset = .zero
         tableView.allowsSelection = false
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(brandingImageView.snp.bottom).offset(8)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
         return tableView
     }()
@@ -34,8 +53,9 @@ final class TimelineViewController: UIViewController {
     
 
     func addNewFeed(description: String) {
-        if let uid = FirebaseAuthService.currentUser?.uid {
-            let feed = Feed.make(description: description, uid: uid)
+        if let uid = FirebaseAuthService.currentUser?.uid,
+           let fullname = AuthenticationViewModel.loggedInUser?.fullname {
+            let feed = Feed.make(description: description, uid: uid, fullname: fullname)
             datasource.insert(feed, at: 0)
             tableView.performBatchUpdates {
                 tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
@@ -81,9 +101,9 @@ extension TimelineViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(FeedTableViewCell.self)", for: indexPath) as? FeedTableViewCell else { return UITableViewCell() }
         let feed = datasource[indexPath.row]
-        cell.textLabel?.text = feed.description
+        cell.configure(feed: feed)
         return cell
     }
 }
