@@ -30,7 +30,6 @@
 		A27CE5F72894F068002385F4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A27CE5F62894F068002385F4 /* FirebaseAuth */; };
 		A27CE5F92894F068002385F4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A27CE5F82894F068002385F4 /* FirebaseFirestore */; };
 		A27CE5FB2894F068002385F4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A27CE5FA2894F068002385F4 /* FirebaseFirestoreSwift */; };
-		A27CE5FD2894F068002385F4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A27CE5FC2894F068002385F4 /* FirebaseStorage */; };
 		A27CE5FF2894F31F002385F4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5FE2894F31F002385F4 /* UserService.swift */; };
 		A27CE6012894F4CC002385F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE6002894F4CC002385F4 /* User.swift */; };
 		A27CE6032894F4FD002385F4 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE6022894F4FD002385F4 /* Feed.swift */; };
@@ -45,6 +44,7 @@
 		A27CE61828962C4A002385F4 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE61728962C4A002385F4 /* PopoverViewController.swift */; };
 		A2CE8B5528964FA7002DD5E3 /* TimelineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B5428964FA7002DD5E3 /* TimelineRouter.swift */; };
 		A2CE8B57289651BE002DD5E3 /* ThreedotMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */; };
+		A2CE8B6028967819002DD5E3 /* ArrayX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B5F28967819002DD5E3 /* ArrayX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +94,7 @@
 		A27CE61728962C4A002385F4 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		A2CE8B5428964FA7002DD5E3 /* TimelineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineRouter.swift; sourceTree = "<group>"; };
 		A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreedotMenu.swift; sourceTree = "<group>"; };
+		A2CE8B5F28967819002DD5E3 /* ArrayX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayX.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +105,6 @@
 				A27CE5BF28940B0D002385F4 /* SnapKit in Frameworks */,
 				A27CE5F72894F068002385F4 /* FirebaseAuth in Frameworks */,
 				A27CE5F92894F068002385F4 /* FirebaseFirestore in Frameworks */,
-				A27CE5FD2894F068002385F4 /* FirebaseStorage in Frameworks */,
 				A27CE5FB2894F068002385F4 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +174,7 @@
 				A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */,
 				A27CE61328958066002385F4 /* DateX.swift */,
 				A27CE61528958686002385F4 /* Atomic.swift */,
+				A2CE8B5F28967819002DD5E3 /* ArrayX.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,7 +279,6 @@
 				A27CE5F62894F068002385F4 /* FirebaseAuth */,
 				A27CE5F82894F068002385F4 /* FirebaseFirestore */,
 				A27CE5FA2894F068002385F4 /* FirebaseFirestoreSwift */,
-				A27CE5FC2894F068002385F4 /* FirebaseStorage */,
 			);
 			productName = "Pika Pika";
 			productReference = A27CE5872894001C002385F4 /* Pika Pika.app */;
@@ -373,6 +373,7 @@
 				A27CE612289575A2002385F4 /* FeedTableViewCell.swift in Sources */,
 				A27CE5ED28945167002385F4 /* PikachuButton.swift in Sources */,
 				A27CE5D6289438A3002385F4 /* UIControlEventHandler.swift in Sources */,
+				A2CE8B6028967819002DD5E3 /* ArrayX.swift in Sources */,
 				A27CE61628958686002385F4 /* Atomic.swift in Sources */,
 				A27CE5EF2894C195002385F4 /* TextField.swift in Sources */,
 				A27CE6052894F82D002385F4 /* TimelineService.swift in Sources */,
@@ -481,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -535,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -710,11 +711,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A27CE5F52894F068002385F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
-		};
-		A27CE5FC2894F068002385F4 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A27CE5F52894F068002385F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

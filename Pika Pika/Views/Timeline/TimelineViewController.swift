@@ -54,6 +54,7 @@ final class TimelineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        _ = brandingImageView
         fetch()
     }
     
@@ -138,14 +139,19 @@ extension TimelineViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(FeedTableViewCell.self)", for: indexPath) as? FeedTableViewCell else { return UITableViewCell() }
-        let feed = datasource[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(FeedTableViewCell.self)", for: indexPath) as? FeedTableViewCell,
+              let feed = datasource[safe: indexPath.row] else { return UITableViewCell() }
+
         cell.configure(feed: feed)
         cell.didTappedThreedot = { [weak self] in
+            
+            guard let self = self else { return }
             TimelineRouter.showPopover(belongsToCurrentUser: feed.belongsToCurrentUser, sourceVC: self, sourceView: cell.threeDotsButton) { menu in
                 switch menu.title {
                 case ThreedotMenu.Delete.rawValue:
-                    self?.delete(feed: feed, indexPath: indexPath)
+                    // Make sure new value because we update auto-id after uploaded
+                    guard let feed = self.datasource[safe: indexPath.row] else { return }
+                    self.delete(feed: feed, indexPath: indexPath)
                 default:
                     break
                 }

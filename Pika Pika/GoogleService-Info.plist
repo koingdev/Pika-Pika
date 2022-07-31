@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>757357097605-oec3g668e1f8eg4gunpbmb3qhii4bje1.apps.googleusercontent.com</string>
+	<string>496300174538-417860u6ak6eko6g3ggiclur99bu7b0l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.757357097605-oec3g668e1f8eg4gunpbmb3qhii4bje1</string>
+	<string>com.googleusercontent.apps.496300174538-417860u6ak6eko6g3ggiclur99bu7b0l</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCX0glUk6sOwUFFM9Q9ZIstJR6BYXI6N7Q</string>
+	<string>AIzaSyCBuPBVfo6nM4IxFl0gXJgW-TiC_g20tyQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>757357097605</string>
+	<string>496300174538</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>koing.dev.Pika-Pika</string>
 	<key>PROJECT_ID</key>
-	<string>pika-pika-d7f5e</string>
+	<string>pika-ios</string>
 	<key>STORAGE_BUCKET</key>
-	<string>pika-pika-d7f5e.appspot.com</string>
+	<string>pika-ios.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:757357097605:ios:8061e8030d49ff24696fec</string>
+	<string>1:496300174538:ios:553731477c76ec20ee5833</string>
 </dict>
 </plist>

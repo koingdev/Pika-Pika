@@ -64,7 +64,7 @@ extension PopoverViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        let data = datasource[indexPath.row]
+        guard let data = datasource[safe: indexPath.row] else { return cell }
         cell.textLabel?.text = data.title
         cell.textLabel?.textColor = data.tintColor
         return cell
@@ -72,7 +72,10 @@ extension PopoverViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        didSelectRow?(datasource[indexPath.row])
+        if let data = datasource[safe: indexPath.row]
+        {
+            didSelectRow?(data)
+        }
         dismiss(animated: true)
     }
 }

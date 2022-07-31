@@ -124,8 +124,9 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        configureActions()
+        setupUI()
+        setupAction()
+        setupKeyboardObserver()
     }
     
     
@@ -134,13 +135,16 @@ class LoginViewController: UIViewController {
     ////////////////////////////////////////////////////////////////
     
     
-    private func configureUI() {
+    private func setupUI() {
         view.backgroundColor = .systemBackground
         _ = stackView
         _ = imageView
     }
     
-    private func configureActions() {
+    private func setupAction() {
+        let tapOutsideGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutsideRecognized))
+        view.addGestureRecognizer(tapOutsideGesture)
+        
         authenticateButton.on(.touchUpInside) { [unowned self] _ in
             authenticate()
         }
@@ -148,6 +152,33 @@ class LoginViewController: UIViewController {
         bottomLabelView.didTapped = { [unowned self] in
             goNextScreen()
         }
+    }
+    
+    /// Observe keyboard to automatically push the content
+    private func setupKeyboardObserver() {
+        func animate(_ y: CGFloat) {
+            UIView.animate(withDuration: 0, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+                self.view.frame.origin.y = y
+            })
+        }
+
+        // Will Show
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main) { notification in
+            guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+                return
+            }
+            
+            animate(-keyboardFrame.height / 2)
+        }
+        
+        // Will Hide
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: OperationQueue.main) { _ in
+            animate(0)
+        }
+    }
+    
+    @objc private func tapOutsideRecognized() {
+        view.endEditing(true)
     }
     
     func resultHandler(_ result: Result<Void, Error>) {
