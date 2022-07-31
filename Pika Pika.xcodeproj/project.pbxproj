@@ -42,6 +42,7 @@
 		A27CE612289575A2002385F4 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE611289575A2002385F4 /* FeedTableViewCell.swift */; };
 		A27CE61428958066002385F4 /* DateX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE61328958066002385F4 /* DateX.swift */; };
 		A27CE61628958686002385F4 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE61528958686002385F4 /* Atomic.swift */; };
+		A27CE61828962C4A002385F4 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE61728962C4A002385F4 /* PopoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		A27CE611289575A2002385F4 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		A27CE61328958066002385F4 /* DateX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateX.swift; sourceTree = "<group>"; };
 		A27CE61528958686002385F4 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		A27CE61728962C4A002385F4 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 				A27CE5EC28945167002385F4 /* PikachuButton.swift */,
 				A27CE5EE2894C195002385F4 /* TextField.swift */,
 				A27CE6082895088A002385F4 /* BottomLabelView.swift */,
+				A27CE61728962C4A002385F4 /* PopoverViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				A27CE5D2289425EE002385F4 /* AuthenticationViewModel.swift in Sources */,
 				A27CE5E4289447A6002385F4 /* TabBarController.swift in Sources */,
 				A27CE5C928941E69002385F4 /* FirebaseAuthService.swift in Sources */,
+				A27CE61828962C4A002385F4 /* PopoverViewController.swift in Sources */,
 				A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */,
 				A27CE5D928943BF0002385F4 /* Error.swift in Sources */,
 				A27CE5FF2894F31F002385F4 /* UserService.swift in Sources */,

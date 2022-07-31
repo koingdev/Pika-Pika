@@ -21,6 +21,14 @@ extension UIAlertController {
         alertOkay(title: "Error", message: message)
     }
     
+    static func deleteConfirmation(completion: Block = nil) {
+        UIAlertController.Builder()
+            .withTitleAndMessage(title: "Are you sure want to delete this?")
+            .addCancelAction()
+            .addAction(title: "Delete", style: .destructive, completion: completion)
+            .show()
+    }
+    
     static func alertOkay(title: String, message: Any = "", completion: Block = nil) {
         UIAlertController.Builder()
             .withTitleAndMessage(title: title, message: message)

@@ -11,7 +11,7 @@ import Firebase
 protocol TimelineServiceType {
     func post(feed: Feed) async -> Result<Void, Error>
     func fetchAll() async -> Result<[Feed], Error>
-    func fetchAll(withUID uid: String) async -> Result<[Feed], Error>
+    func delete(id: String) async -> Result<Void, Error>
 }
 
 final class TimelineService: TimelineServiceType {
@@ -54,16 +54,15 @@ final class TimelineService: TimelineServiceType {
         }
     }
     
-    func fetchAll(withUID uid: String) async -> Result<[Feed], Error> {
+    
+    func delete(id: String) async -> Result<Void, Error> {
         do {
-            let snapshot = try await Firestore.firestore()
+            try await Firestore.firestore()
                 .collection("feeds")
-                .whereField("uid", isEqualTo: uid)
-                .order(by: "timestamp", descending: true)
-                .getDocuments()
-            
-            let feeds = try snapshot.documents.compactMap { try $0.data(as: Feed.self) }
-            return .success(feeds)
+                .document(id)
+                .delete()
+
+            return .success(())
         } catch {
             debugPrint("Error: \(error.localizedDescription)")
             return .failure(error)

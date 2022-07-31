@@ -29,4 +29,11 @@ final class TimelineViewModel {
     func post(feed: Feed) async -> Result<Void, Error> {
         return await timelineService.post(feed: feed)
     }
+    
+    func delete(feed: Feed) async -> Result<Void, Error> {
+        guard let id = feed.id else {
+            return .failure(AppError.documentIdNotFound)
+        }
+        return await timelineService.delete(id: id)
+    }
 }

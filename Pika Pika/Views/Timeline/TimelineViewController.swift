@@ -87,6 +87,30 @@ final class TimelineViewController: UIViewController {
         }
     }
     
+    
+    private func delete(feed: Feed, indexPath: IndexPath) {
+        guard feed.belongsToCurrentUser else {
+            return
+        }
+        
+        UIAlertController.deleteConfirmation { _ in
+            Task.detached { [self] in
+                let result = await self.viewModel.delete(feed: feed)
+                Task { @MainActor in
+                    switch result {
+                    case .success():
+                        datasource.remove(at: indexPath.row)
+                        tableView.performBatchUpdates {
+                            tableView.deleteRows(at: [indexPath], with: .fade)
+                        }
+                    case .failure(let error):
+                        UIAlertController.errorAlert(message: error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 
@@ -104,6 +128,28 @@ extension TimelineViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(FeedTableViewCell.self)", for: indexPath) as? FeedTableViewCell else { return UITableViewCell() }
         let feed = datasource[indexPath.row]
         cell.configure(feed: feed)
+        cell.didTappedThreedot = { [weak self] in
+            let deleteMenu = PopoverModel(title: "Delete", tintColor: .red)
+            let shareMenu = PopoverModel(title: "Share", tintColor: .label)
+            let datasource = feed.belongsToCurrentUser ? [deleteMenu, shareMenu] : [shareMenu]
+            let vc = PopoverViewController(datasource: datasource, sourceView: cell.threeDotsButton)
+            vc.popoverPresentationController?.delegate = self
+            vc.didSelectRow = { row in
+                switch row.title {
+                case deleteMenu.title:
+                    self?.delete(feed: feed, indexPath: indexPath)
+                default:
+                    break
+                }
+            }
+            self?.present(vc, animated: true)
+        }
         return cell
+    }
+}
+
+extension TimelineViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        .none
     }
 }

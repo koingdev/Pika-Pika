@@ -16,6 +16,10 @@ struct Feed: Decodable {
     
     // Denormalization for read performance
     var fullname: String
+    
+    var belongsToCurrentUser: Bool {
+        uid == FirebaseAuthService.currentUser?.uid
+    }
 }
 
 extension Feed {
