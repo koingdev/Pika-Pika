@@ -13,6 +13,11 @@ final class AddNewPostViewController: UIViewController {
     var didTappedSubmit: ((String) -> Void)?
     
     
+    deinit {
+        debugPrint("DEINIT: \(Self.self)")
+    }
+    
+    
     ////////////////////////////////////////////////////////////////
     //MARK: - UI Components
     ////////////////////////////////////////////////////////////////

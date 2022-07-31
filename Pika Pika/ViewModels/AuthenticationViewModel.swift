@@ -7,15 +7,17 @@
 
 import Foundation
 
+/// This viewModel is shared globally in a thread-safe manner
 final class AuthenticationViewModel {
 
-    /// This can be shared globally in a thread-safe manner
-    @Atomic private(set) static var loggedInUser: User?
+    static let shared = AuthenticationViewModel()
+    
+    @Atomic private(set) var loggedInUser: User?
     
     private let authService: FirebaseAuthServiceType
     private let userService: UserServiceType
     
-    init(
+    private init(
         authService: FirebaseAuthServiceType = FirebaseAuthService(),
         userService: UserServiceType = UserService()
     ) {
@@ -34,7 +36,7 @@ final class AuthenticationViewModel {
         switch result {
         case .success(let uid):
             if let user = await userService.fetch(withUID: uid) {
-                Self.loggedInUser = user
+                Self.shared.loggedInUser = user
             }
             return .success(())
 
@@ -61,14 +63,9 @@ final class AuthenticationViewModel {
         }
     }
     
-    func fetchUserIfFirebaseLoggedIn() {
-        if let uid = FirebaseAuthService.currentUser?.uid {
-            Task {
-                if let user = await userService.fetch(withUID: uid) {
-                    Self.loggedInUser = user
-                }
-            }
-        }
+    func logout() {
+        authService.logout()
+        Self.shared.loggedInUser = nil
     }
     
     func isLoggedIn() -> Bool {
@@ -82,5 +79,16 @@ final class AuthenticationViewModel {
             return false
         }
         return true
+    }
+    
+    
+    private func fetchUserIfFirebaseLoggedIn() {
+        if let uid = FirebaseAuthService.currentUser?.uid {
+            Task {
+                if let user = await userService.fetch(withUID: uid) {
+                    Self.shared.loggedInUser = user
+                }
+            }
+        }
     }
 }

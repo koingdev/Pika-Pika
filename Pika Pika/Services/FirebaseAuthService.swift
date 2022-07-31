@@ -51,6 +51,10 @@ final class FirebaseAuthService: FirebaseAuthServiceType {
     }
     
     func logout() {
-        try? Auth.auth().signOut()
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            debugPrint("Error: \(error.localizedDescription)")
+        }
     }
 }

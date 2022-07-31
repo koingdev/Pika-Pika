@@ -10,9 +10,9 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
-    private let viewModel: AuthenticationViewModel
+    let viewModel: AuthenticationViewModel
     
-    init(viewModel: AuthenticationViewModel) {
+    init(viewModel: AuthenticationViewModel = AuthenticationViewModel.shared) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -21,6 +21,9 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        debugPrint("DEINIT: \(Self.self)")
+    }
     
     ////////////////////////////////////////////////////////////////
     //MARK: - Override Me
@@ -129,7 +132,6 @@ class LoginViewController: UIViewController {
         setupKeyboardObserver()
     }
     
-    
     ////////////////////////////////////////////////////////////////
     //MARK: - Private
     ////////////////////////////////////////////////////////////////
@@ -145,36 +147,36 @@ class LoginViewController: UIViewController {
         let tapOutsideGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutsideRecognized))
         view.addGestureRecognizer(tapOutsideGesture)
         
-        authenticateButton.on(.touchUpInside) { [unowned self] _ in
-            authenticate()
+        authenticateButton.on(.touchUpInside) { [weak self] _ in
+            self?.authenticate()
         }
         
-        bottomLabelView.didTapped = { [unowned self] in
-            goNextScreen()
+        bottomLabelView.didTapped = { [weak self] in
+            self?.goNextScreen()
         }
     }
     
-    /// Observe keyboard to automatically push the content
+    /// Observe the keyboard to automatically push the content
     private func setupKeyboardObserver() {
-        func animate(_ y: CGFloat) {
-            UIView.animate(withDuration: 0, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
-                self.view.frame.origin.y = y
-            })
-        }
-
         // Will Show
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main) { notification in
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main) { [weak self] notification in
             guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
                 return
             }
-            
-            animate(-keyboardFrame.height / 2)
+            self?.animateFrame(-keyboardFrame.height / 2)
         }
         
         // Will Hide
-        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: OperationQueue.main) { _ in
-            animate(0)
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: OperationQueue.main) { [weak self] _ in
+            self?.animateFrame(0)
         }
+    }
+    
+    private func animateFrame(_ y: CGFloat) {
+        guard view.frame.origin.y != y else { return }
+        UIView.animate(withDuration: 0, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
+            self.view.frame.origin.y = y
+        })
     }
     
     @objc private func tapOutsideRecognized() {

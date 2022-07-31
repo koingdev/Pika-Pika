@@ -10,17 +10,6 @@ import SnapKit
 
 class RegisterViewController: LoginViewController {
     
-    private let viewModel: AuthenticationViewModel
-    
-    override init(viewModel: AuthenticationViewModel) {
-        self.viewModel = viewModel
-        super.init(viewModel: viewModel)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     ////////////////////////////////////////////////////////////////
     //MARK: - Override
@@ -46,7 +35,7 @@ class RegisterViewController: LoginViewController {
     }
     
     override func goNextScreen() {
-       let vc = LoginViewController(viewModel: viewModel)
+       let vc = LoginViewController()
        view.window?.rootViewController = vc
    }
 
@@ -56,6 +45,7 @@ class RegisterViewController: LoginViewController {
     
     private lazy var fullnameTextField: TextField = {
         let textField = TextField(placeholder: "Fullname", leftIcon: UIImage(systemName: "person.fill"))
+        textField.autocorrectionType = .no
         textField.snp.makeConstraints { $0.height.equalTo(48) }
         return textField
     }()

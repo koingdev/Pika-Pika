@@ -10,9 +10,6 @@ import SnapKit
 
 final class TabBarController: UITabBarController {
     
-    private lazy var timelineVC = TimelineViewController()
-    private lazy var accountVC = AccountViewController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -40,6 +37,8 @@ final class TabBarController: UITabBarController {
         }
         
         // VCs
+        let timelineVC = TimelineViewController()
+        let accountVC = AccountViewController()
         timelineVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         accountVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
         viewControllers = [timelineVC, accountVC]
@@ -49,7 +48,7 @@ final class TabBarController: UITabBarController {
             let vc = AddNewPostViewController()
             vc.didTappedSubmit = { description in
                 self?.selectedIndex = 0
-                self?.timelineVC.addNewFeed(description: description)
+                timelineVC.addNewFeed(description: description)
             }
             self?.present(vc, animated: true)
         }

@@ -16,6 +16,11 @@ final class TimelineViewController: UIViewController {
     private let viewModel = TimelineViewModel()
     
     
+    deinit {
+        debugPrint("DEINIT: \(Self.self)")
+    }
+    
+    
     ////////////////////////////////////////////////////////////////
     //MARK: - UI Components
     ////////////////////////////////////////////////////////////////
@@ -61,7 +66,7 @@ final class TimelineViewController: UIViewController {
 
     func addNewFeed(description: String) {
         if let uid = FirebaseAuthService.currentUser?.uid,
-           let fullname = AuthenticationViewModel.loggedInUser?.fullname {
+           let fullname = AuthenticationViewModel.shared.loggedInUser?.fullname {
             // Insert to tableView first for performance
             let feed = Feed.make(description: description, uid: uid, fullname: fullname)
             datasource.insert(feed, at: 0)
