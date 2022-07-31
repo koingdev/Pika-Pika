@@ -138,7 +138,7 @@ final class TimelineViewController: UIViewController {
 ////////////////////////////////////////////////////////////////
 
 
-extension TimelineViewController: UITableViewDataSource {
+extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count
     }
@@ -148,15 +148,15 @@ extension TimelineViewController: UITableViewDataSource {
               let feed = datasource[safe: indexPath.row] else { return UITableViewCell() }
 
         cell.configure(feed: feed)
-        cell.didTappedThreedot = { [weak self] in
-            
-            guard let self = self else { return }
+        cell.didTappedThreedot = { [weak self] selectedCell in
+            // Get the current selectedIndexPath from tableView.indexPath(for:)
+            // Because insertRows(at:) and deleteRows(at:) don't refresh the whole cells
+            guard let self = self, let selectedIndexPath = tableView.indexPath(for: selectedCell) else { return }
             TimelineRouter.showPopover(belongsToCurrentUser: feed.belongsToCurrentUser, sourceVC: self, sourceView: cell.threeDotsButton) { menu in
                 switch menu.title {
                 case ThreedotMenu.Delete.rawValue:
-                    // Make sure new value because we update auto-id after uploaded
-                    guard let feed = self.datasource[safe: indexPath.row] else { return }
-                    self.delete(feed: feed, indexPath: indexPath)
+                    guard let feed = self.datasource[safe: selectedIndexPath.row] else { return }
+                    self.delete(feed: feed, indexPath: selectedIndexPath)
                 default:
                     break
                 }

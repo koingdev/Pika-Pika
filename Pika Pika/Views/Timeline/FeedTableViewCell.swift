@@ -10,7 +10,7 @@ import SnapKit
 
 final class FeedTableViewCell: UITableViewCell {
     
-    var didTappedThreedot: (() -> Void)?
+    var didTappedThreedot: ((UITableViewCell) -> Void)?
     
     ////////////////////////////////////////////////////////////////
     //MARK: - UI Components
@@ -93,7 +93,8 @@ final class FeedTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         _ = vStack
         threeDotsButton.on(.touchUpInside) { [weak self] _ in
-            self?.didTappedThreedot?()
+            guard let self = self else { return }
+            self.didTappedThreedot?(self)
         }
     }
     
