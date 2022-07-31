@@ -9,7 +9,7 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 
 struct Feed: Decodable {
-    @DocumentID var id: String?
+    @DocumentID var id: ID?
     let description: String
     let timestamp: Timestamp
     let uid: String

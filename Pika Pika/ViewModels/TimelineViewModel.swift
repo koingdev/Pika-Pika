@@ -26,7 +26,7 @@ final class TimelineViewModel {
         }
     }
     
-    func post(feed: Feed) async -> Result<Void, Error> {
+    func post(feed: Feed) async -> Result<ID, Error> {
         return await timelineService.post(feed: feed)
     }
     

@@ -7,8 +7,10 @@
 
 import FirebaseFirestoreSwift
 
+typealias ID = String
+
 struct User: Decodable {
-    @DocumentID var id: String?
+    @DocumentID var id: ID?
     let email: String
     let fullname: String
 }

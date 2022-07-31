@@ -20,6 +20,7 @@ final class TabBarController: UITabBarController {
     
     private func setUp() {
         // Style
+        view.tintAdjustmentMode = .normal
         let appearance = UITabBarAppearance()
         appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
         appearance.backgroundColor = .systemBackground.withAlphaComponent(0.1)
@@ -47,6 +48,7 @@ final class TabBarController: UITabBarController {
         postButton.on(.touchUpInside) { [weak self] _ in
             let vc = AddNewPostViewController()
             vc.didTappedSubmit = { description in
+                self?.selectedIndex = 0
                 self?.timelineVC.addNewFeed(description: description)
             }
             self?.present(vc, animated: true)

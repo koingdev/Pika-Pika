@@ -43,6 +43,8 @@
 		A27CE61428958066002385F4 /* DateX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE61328958066002385F4 /* DateX.swift */; };
 		A27CE61628958686002385F4 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE61528958686002385F4 /* Atomic.swift */; };
 		A27CE61828962C4A002385F4 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE61728962C4A002385F4 /* PopoverViewController.swift */; };
+		A2CE8B5528964FA7002DD5E3 /* TimelineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B5428964FA7002DD5E3 /* TimelineRouter.swift */; };
+		A2CE8B57289651BE002DD5E3 /* ThreedotMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		A27CE61328958066002385F4 /* DateX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateX.swift; sourceTree = "<group>"; };
 		A27CE61528958686002385F4 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		A27CE61728962C4A002385F4 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		A2CE8B5428964FA7002DD5E3 /* TimelineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineRouter.swift; sourceTree = "<group>"; };
+		A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreedotMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			children = (
 				A27CE5BA289407A8002385F4 /* Extensions */,
 				A27CE5EB28945122002385F4 /* Components */,
+				A2CE8B5128964E57002DD5E3 /* Routers */,
 				A27CE5C728941E50002385F4 /* Services */,
 				A27CE5D728943BDA002385F4 /* Models */,
 				A27CE5D0289425D9002385F4 /* ViewModels */,
@@ -186,11 +191,10 @@
 		A27CE5CF289425C2002385F4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A27CE58E2894001C002385F4 /* LoginViewController.swift */,
-				A27CE60A28950D4F002385F4 /* RegisterViewController.swift */,
 				A27CE5E3289447A6002385F4 /* TabBarController.swift */,
 				A27CE5E928944E8D002385F4 /* AccountViewController.swift */,
 				A27CE60E28954A0B002385F4 /* AddNewPostViewController.swift */,
+				A2CE8B58289653B7002DD5E3 /* Authentication */,
 				A27CE6102895757E002385F4 /* Timeline */,
 			);
 			path = Views;
@@ -211,6 +215,7 @@
 				A27CE6002894F4CC002385F4 /* User.swift */,
 				A27CE6022894F4FD002385F4 /* Feed.swift */,
 				A27CE5D828943BF0002385F4 /* Error.swift */,
+				A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,6 +238,23 @@
 				A27CE611289575A2002385F4 /* FeedTableViewCell.swift */,
 			);
 			path = Timeline;
+			sourceTree = "<group>";
+		};
+		A2CE8B5128964E57002DD5E3 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				A2CE8B5428964FA7002DD5E3 /* TimelineRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		A2CE8B58289653B7002DD5E3 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE58E2894001C002385F4 /* LoginViewController.swift */,
+				A27CE60A28950D4F002385F4 /* RegisterViewController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,7 +389,9 @@
 				A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */,
 				A27CE5D928943BF0002385F4 /* Error.swift in Sources */,
 				A27CE5FF2894F31F002385F4 /* UserService.swift in Sources */,
+				A2CE8B5528964FA7002DD5E3 /* TimelineRouter.swift in Sources */,
 				A27CE5C12894106B002385F4 /* UIColorX.swift in Sources */,
+				A2CE8B57289651BE002DD5E3 /* ThreedotMenu.swift in Sources */,
 				A27CE60D289517B9002385F4 /* TimelineViewModel.swift in Sources */,
 				A27CE61428958066002385F4 /* DateX.swift in Sources */,
 				A27CE6092895088A002385F4 /* BottomLabelView.swift in Sources */,

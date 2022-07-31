@@ -39,6 +39,7 @@ final class PopoverViewController: UIViewController {
         modalPresentationStyle = .popover
         popoverPresentationController?.sourceView = sourceView
         popoverPresentationController?.sourceRect = sourceView.bounds
+        popoverPresentationController?.permittedArrowDirections = []
         preferredContentSize = CGSize(width: 120, height: Int(tableView.rowHeight) * datasource.count)
     }
     

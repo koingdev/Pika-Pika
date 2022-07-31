@@ -9,14 +9,14 @@ import FirebaseFirestore
 import Firebase
 
 protocol TimelineServiceType {
-    func post(feed: Feed) async -> Result<Void, Error>
+    func post(feed: Feed) async -> Result<ID, Error>
     func fetchAll() async -> Result<[Feed], Error>
     func delete(id: String) async -> Result<Void, Error>
 }
 
 final class TimelineService: TimelineServiceType {
     
-    func post(feed: Feed) async -> Result<Void, Error> {
+    func post(feed: Feed) async -> Result<ID, Error> {
         do {
             guard let uid = FirebaseAuthService.currentUser?.uid else { return .failure(AppError.userNotFound) }
             
@@ -27,12 +27,11 @@ final class TimelineService: TimelineServiceType {
                 "fullname": feed.fullname
             ] as [String: Any]
             
-            try await Firestore.firestore()
+            let document = Firestore.firestore()
                 .collection("feeds")
                 .document()
-                .setData(data)
-            
-            return .success(())
+            try await document.setData(data)
+            return .success(document.documentID)
         } catch {
             debugPrint("Error: \(error.localizedDescription)")
             return .failure(error)

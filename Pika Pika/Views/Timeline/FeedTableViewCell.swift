@@ -22,6 +22,8 @@ final class FeedTableViewCell: UITableViewCell {
         imageView.snp.makeConstraints { make in
             make.width.height.equalTo(34)
         }
+        imageView.tintAdjustmentMode = .normal
+        imageView.tintColor = .systemMint
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = imageView.frame.width / 2
         return imageView

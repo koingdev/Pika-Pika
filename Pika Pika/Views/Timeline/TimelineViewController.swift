@@ -15,6 +15,12 @@ final class TimelineViewController: UIViewController {
     
     private let viewModel = TimelineViewModel()
     
+    
+    ////////////////////////////////////////////////////////////////
+    //MARK: - UI Components
+    ////////////////////////////////////////////////////////////////
+
+    
     private lazy var brandingImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "PikaPika")
@@ -55,15 +61,22 @@ final class TimelineViewController: UIViewController {
     func addNewFeed(description: String) {
         if let uid = FirebaseAuthService.currentUser?.uid,
            let fullname = AuthenticationViewModel.loggedInUser?.fullname {
+            // Insert to tableView first for performance
             let feed = Feed.make(description: description, uid: uid, fullname: fullname)
             datasource.insert(feed, at: 0)
             tableView.performBatchUpdates {
                 tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
             }
+
+            // Upload to Server
             Task.detached {
                 let result = await self.viewModel.post(feed: feed)
-                if case let .failure(error) = result {
-                    Task { @MainActor in
+                Task { @MainActor in
+                    switch result {
+                    case .success(let id):
+                        // Update auto-id
+                        self.datasource[0].id = id
+                    case .failure(let error):
                         UIAlertController.errorAlert(message: error.localizedDescription)
                     }
                 }
@@ -92,18 +105,18 @@ final class TimelineViewController: UIViewController {
         guard feed.belongsToCurrentUser else {
             return
         }
-        
-        UIAlertController.deleteConfirmation { _ in
-            Task.detached { [self] in
+        UIAlertController.deleteConfirmation { [self] _ in
+            // Remove from tableView first
+            datasource.remove(at: indexPath.row)
+            tableView.performBatchUpdates {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            // Delete from Server
+            Task.detached {
                 let result = await self.viewModel.delete(feed: feed)
-                Task { @MainActor in
-                    switch result {
-                    case .success():
-                        datasource.remove(at: indexPath.row)
-                        tableView.performBatchUpdates {
-                            tableView.deleteRows(at: [indexPath], with: .fade)
-                        }
-                    case .failure(let error):
+                if case let .failure(error) = result {
+                    Task { @MainActor in
                         UIAlertController.errorAlert(message: error.localizedDescription)
                     }
                 }
@@ -129,24 +142,23 @@ extension TimelineViewController: UITableViewDataSource {
         let feed = datasource[indexPath.row]
         cell.configure(feed: feed)
         cell.didTappedThreedot = { [weak self] in
-            let deleteMenu = PopoverModel(title: "Delete", tintColor: .red)
-            let shareMenu = PopoverModel(title: "Share", tintColor: .label)
-            let datasource = feed.belongsToCurrentUser ? [deleteMenu, shareMenu] : [shareMenu]
-            let vc = PopoverViewController(datasource: datasource, sourceView: cell.threeDotsButton)
-            vc.popoverPresentationController?.delegate = self
-            vc.didSelectRow = { row in
-                switch row.title {
-                case deleteMenu.title:
+            TimelineRouter.showPopover(belongsToCurrentUser: feed.belongsToCurrentUser, sourceVC: self, sourceView: cell.threeDotsButton) { menu in
+                switch menu.title {
+                case ThreedotMenu.Delete.rawValue:
                     self?.delete(feed: feed, indexPath: indexPath)
                 default:
                     break
                 }
             }
-            self?.present(vc, animated: true)
         }
         return cell
     }
 }
+
+
+////////////////////////////////////////////////////////////////
+//MARK: - PopoverDelegate
+////////////////////////////////////////////////////////////////
 
 extension TimelineViewController: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
