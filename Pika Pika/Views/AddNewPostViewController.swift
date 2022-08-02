@@ -11,7 +11,7 @@ import SnapKit
 final class AddNewPostViewController: UIViewController {
     
     var didTappedSubmit: ((String) -> Void)?
-    
+    private var imagePicker: ImagePicker!
     
     deinit {
         debugPrint("DEINIT: \(Self.self)")
@@ -26,13 +26,34 @@ final class AddNewPostViewController: UIViewController {
     private lazy var textView: UITextView = {
         let textView = UITextView()
         textView.autocorrectionType = .no
+        textView.textContainer.maximumNumberOfLines = 10
+        textView.textContainer.lineBreakMode = .byTruncatingTail
         textView.font = .boldSystemFont(ofSize: 24)
         textView.isEditable = true
+        textView.delegate = self
+        let bar = UIToolbar()
+        let choosePhoto = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(choosePhoto))
+        bar.items = [choosePhoto]
+        bar.sizeToFit()
+        textView.inputAccessoryView = bar
         view.addSubview(textView)
         textView.snp.makeConstraints { make in
-            make.leading.trailing.bottomMargin.equalToSuperview().inset(20)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.bottom.equalTo(imageView.snp.top).offset(-20)
+            make.height.equalTo(52)
         }
         return textView
+    }()
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleToFill
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.width.height.equalTo(UIScreen.main.bounds.width / 2)
+        }
+        return imageView
     }()
     
     private lazy var closeButton: UIButton = {
@@ -67,11 +88,24 @@ final class AddNewPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        textView.becomeFirstResponder()
+    }
+    
+    private func setup() {
         view.backgroundColor = .white
         _ = textView
         _ = stackView
-        
-        // Action
+        _ = imageView
+        imagePicker = ImagePicker(presentationController: self) { [weak self] selectedImage in
+            self?.imageView.image = selectedImage
+            self?.textView.becomeFirstResponder()
+        }
+
         closeButton.on(.touchUpInside) { [weak self] _ in
             self?.dismiss(animated: true)
         }
@@ -85,8 +119,22 @@ final class AddNewPostViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        textView.becomeFirstResponder()
+    @objc private func choosePhoto() {
+        imagePicker.present()
+    }
+}
+
+
+////////////////////////////////////////////////////////////////
+//MARK: - Auto-sizing TextView
+////////////////////////////////////////////////////////////////
+
+extension AddNewPostViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: textView.frame.size.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        for constraint in textView.constraints where constraint.firstAttribute == .height {
+            constraint.constant = max(CGFloat(52), estimatedSize.height)
+        }
     }
 }

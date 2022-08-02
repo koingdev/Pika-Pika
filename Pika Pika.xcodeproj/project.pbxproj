@@ -45,6 +45,7 @@
 		A2CE8B5528964FA7002DD5E3 /* TimelineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B5428964FA7002DD5E3 /* TimelineRouter.swift */; };
 		A2CE8B57289651BE002DD5E3 /* ThreedotMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */; };
 		A2CE8B6028967819002DD5E3 /* ArrayX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B5F28967819002DD5E3 /* ArrayX.swift */; };
+		A2CE8B6328994647002DD5E3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B6228994647002DD5E3 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		A2CE8B5428964FA7002DD5E3 /* TimelineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineRouter.swift; sourceTree = "<group>"; };
 		A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreedotMenu.swift; sourceTree = "<group>"; };
 		A2CE8B5F28967819002DD5E3 /* ArrayX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayX.swift; sourceTree = "<group>"; };
+		A2CE8B6228994647002DD5E3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		A27CE5892894001C002385F4 /* Pika Pika */ = {
 			isa = PBXGroup;
 			children = (
+				A2CE8B6128994633002DD5E3 /* Utils */,
 				A27CE5BA289407A8002385F4 /* Extensions */,
 				A27CE5EB28945122002385F4 /* Components */,
 				A2CE8B5128964E57002DD5E3 /* Routers */,
@@ -171,9 +174,7 @@
 				A27CE5DA28943D39002385F4 /* UIAlertX.swift */,
 				A27CE5E528944830002385F4 /* UIViewX.swift */,
 				A27CE5E728944C8E002385F4 /* UIWindowX.swift */,
-				A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */,
 				A27CE61328958066002385F4 /* DateX.swift */,
-				A27CE61528958686002385F4 /* Atomic.swift */,
 				A2CE8B5F28967819002DD5E3 /* ArrayX.swift */,
 			);
 			path = Extensions;
@@ -256,6 +257,16 @@
 				A27CE60A28950D4F002385F4 /* RegisterViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		A2CE8B6128994633002DD5E3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A27CE5D5289438A3002385F4 /* UIControlEventHandler.swift */,
+				A27CE61528958686002385F4 /* Atomic.swift */,
+				A2CE8B6228994647002DD5E3 /* ImagePicker.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +403,7 @@
 				A27CE5FF2894F31F002385F4 /* UserService.swift in Sources */,
 				A2CE8B5528964FA7002DD5E3 /* TimelineRouter.swift in Sources */,
 				A27CE5C12894106B002385F4 /* UIColorX.swift in Sources */,
+				A2CE8B6328994647002DD5E3 /* ImagePicker.swift in Sources */,
 				A2CE8B57289651BE002DD5E3 /* ThreedotMenu.swift in Sources */,
 				A27CE60D289517B9002385F4 /* TimelineViewModel.swift in Sources */,
 				A27CE61428958066002385F4 /* DateX.swift in Sources */,
@@ -556,6 +568,8 @@
 				DEVELOPMENT_TEAM = MM23294F8G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pika Pika/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) wants to access your camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) wants to access your photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -583,6 +597,8 @@
 				DEVELOPMENT_TEAM = MM23294F8G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pika Pika/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) wants to access your camera.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) wants to access your photos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
