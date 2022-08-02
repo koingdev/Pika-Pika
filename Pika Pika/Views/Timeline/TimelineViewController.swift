@@ -64,30 +64,26 @@ final class TimelineViewController: UIViewController {
     }
     
 
-    func addNewFeed(description: String) {
-        if let uid = FirebaseAuthService.currentUser?.uid,
-           let fullname = AuthenticationViewModel.shared.loggedInUser?.fullname {
-            // Insert to tableView first for performance
-            let feed = Feed.make(description: description, uid: uid, fullname: fullname)
-            datasource.insert(feed, at: 0)
-            tableView.performBatchUpdates {
-                tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
-            }
-
-            // Upload to Server
-            Task.detached {
-                let result = await self.viewModel.post(feed: feed)
-                Task { @MainActor in
-                    switch result {
-                    case .success(let id):
-                        // Update auto-id
-                        self.datasource[0].id = id
-                    case .failure(let error):
-                        UIAlertController.errorAlert(message: error.localizedDescription)
-                    }
-                }
-            }
+    func addNewFeed(feed: Feed) {
+        // Insert to tableView first for performance
+        datasource.insert(feed, at: 0)
+        tableView.performBatchUpdates {
+            tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
         }
+
+        // Upload to Server
+//        Task.detached {
+//            let result = await self.viewModel.post(feed: feed)
+//            Task { @MainActor in
+//                switch result {
+//                case .success(let id):
+//                    // Update auto-id
+//                    self.datasource[0].id = id
+//                case .failure(let error):
+//                    UIAlertController.errorAlert(message: error.localizedDescription)
+//                }
+//            }
+//        }
     }
     
     

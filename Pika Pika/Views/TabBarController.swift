@@ -46,9 +46,9 @@ final class TabBarController: UITabBarController {
         // Action
         postButton.on(.touchUpInside) { [weak self] _ in
             let vc = AddNewPostViewController()
-            vc.didTappedSubmit = { description in
+            vc.didTappedSubmit = { feed in
                 self?.selectedIndex = 0
-                timelineVC.addNewFeed(description: description)
+                timelineVC.addNewFeed(feed: feed)
             }
             self?.present(vc, animated: true)
         }

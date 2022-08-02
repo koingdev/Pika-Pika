@@ -10,7 +10,7 @@ import SnapKit
 
 final class AddNewPostViewController: UIViewController {
     
-    var didTappedSubmit: ((String) -> Void)?
+    var didTappedSubmit: ((Feed) -> Void)?
     private var imagePicker: ImagePicker!
     
     deinit {
@@ -31,7 +31,7 @@ final class AddNewPostViewController: UIViewController {
         textView.font = .boldSystemFont(ofSize: 24)
         textView.isEditable = true
         textView.delegate = self
-        let bar = UIToolbar()
+        let bar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
         let choosePhoto = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(choosePhoto))
         bar.items = [choosePhoto]
         bar.sizeToFit()
@@ -47,11 +47,11 @@ final class AddNewPostViewController: UIViewController {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.width.height.equalTo(UIScreen.main.bounds.width / 2)
+            make.horizontalEdges.equalToSuperview().inset(20)
+            make.height.equalTo(imageView.snp.width)
         }
         return imageView
     }()
@@ -93,7 +93,9 @@ final class AddNewPostViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        textView.becomeFirstResponder()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.textView.becomeFirstResponder()
+        }
     }
     
     private func setup() {
@@ -111,9 +113,13 @@ final class AddNewPostViewController: UIViewController {
         }
         
         submitButton.on(.touchUpInside) { [weak self] _ in
-            if let description = self?.textView.text?.trimmingCharacters(in: .whitespaces),
-               !description.isEmpty {
-                self?.didTappedSubmit?(description)
+            if let description = self?.textView.text?.trimmingCharacters(in: .whitespaces), !description.isEmpty,
+               let uid = FirebaseAuthService.currentUser?.uid,
+               let fullname = AuthenticationViewModel.shared.loggedInUser?.fullname
+            {
+                var feed = Feed.make(description: description, uid: uid, fullname: fullname)
+                feed.imageData = self?.imageView.image?.jpegData(compressionQuality: 0.8)
+                self?.didTappedSubmit?(feed)
                 self?.dismiss(animated: true)
             }
         }

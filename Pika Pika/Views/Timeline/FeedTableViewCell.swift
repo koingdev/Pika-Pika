@@ -43,10 +43,20 @@ final class FeedTableViewCell: UITableViewCell {
         label.textColor = .label
         label.font = .systemFont(ofSize: 15)
         contentView.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.bottom.equalTo(contentView.snp.bottom)
-        }
         return label
+    }()
+    
+    private lazy var postImageView: ResizingUIImageView = {
+        let imageView = ResizingUIImageView()
+        contentView.addSubview(imageView)
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(12)
+            make.horizontalEdges.equalToSuperview().inset(12)
+            make.height.lessThanOrEqualTo(imageView.snp.width)
+        }
+        return imageView
     }()
     
     private lazy var timestampLabel: UILabel = {
@@ -80,11 +90,12 @@ final class FeedTableViewCell: UITableViewCell {
     private lazy var vStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [hStack, descriptionLabel])
         stack.axis = .vertical
-        stack.distribution = .equalSpacing
+        stack.distribution = .fill
         stack.spacing = 6
         contentView.addSubview(stack)
         stack.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(12)
+            make.horizontalEdges.top.equalToSuperview().inset(12)
+            make.bottom.equalTo(postImageView.snp.top).offset(-6)
         }
         return stack
     }()
@@ -102,9 +113,19 @@ final class FeedTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        postImageView.image = nil
+    }
+    
     func configure(feed: Feed) {
         nameLabel.text = feed.fullname
         descriptionLabel.text = feed.description
         timestampLabel.text = Date().offset(from: feed.timestamp.dateValue())
+        if let image = feed.getImage() {
+            postImageView.image = image
+        } else {
+            // TODO: Load from server
+        }
     }
 }
