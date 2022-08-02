@@ -46,16 +46,11 @@ final class FeedTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var postImageView: ResizingUIImageView = {
-        let imageView = ResizingUIImageView()
+    private lazy var postImageView: UIImageView = {
+        let imageView = UIImageView()
         contentView.addSubview(imageView)
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFit
-        imageView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(12)
-            make.horizontalEdges.equalToSuperview().inset(12)
-            make.height.lessThanOrEqualTo(imageView.snp.width)
-        }
         return imageView
     }()
     
@@ -88,14 +83,14 @@ final class FeedTableViewCell: UITableViewCell {
     }()
     
     private lazy var vStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [hStack, descriptionLabel])
+        let stack = UIStackView(arrangedSubviews: [hStack, descriptionLabel, postImageView])
         stack.axis = .vertical
-        stack.distribution = .fill
+        stack.distribution = .equalSpacing
+        stack.alignment = .fill
         stack.spacing = 6
         contentView.addSubview(stack)
         stack.snp.makeConstraints { make in
-            make.horizontalEdges.top.equalToSuperview().inset(12)
-            make.bottom.equalTo(postImageView.snp.top).offset(-6)
+            make.edges.equalToSuperview().inset(12)
         }
         return stack
     }()
@@ -116,6 +111,7 @@ final class FeedTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         postImageView.image = nil
+        postImageView.snp.removeConstraints()
     }
     
     func configure(feed: Feed) {
@@ -123,6 +119,11 @@ final class FeedTableViewCell: UITableViewCell {
         descriptionLabel.text = feed.description
         timestampLabel.text = Date().offset(from: feed.timestamp.dateValue())
         if let image = feed.getImage() {
+            let ratio = image.size.height / image.size.width
+            let aspectWidth = (UIScreen.main.bounds.width - 12) * ratio
+            postImageView.snp.makeConstraints { make in
+                make.height.lessThanOrEqualTo(aspectWidth)
+            }
             postImageView.image = image
         } else {
             // TODO: Load from server
