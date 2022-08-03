@@ -12,7 +12,8 @@ import FirebaseFirestore
 struct Feed: Decodable {
     @DocumentID var id: ID?
     let description: String
-    var image: String?
+    var imageURL: String?
+    var imageAspectHeight: CGFloat?
     let timestamp: Timestamp
     let uid: String
     

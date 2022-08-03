@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A21F714E289A9A0100048B2D /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F714D289A9A0100048B2D /* ImageUploadService.swift */; };
+		A21F7151289A9A2C00048B2D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A21F7150289A9A2C00048B2D /* FirebaseStorage */; };
+		A21F7154289AA14C00048B2D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A21F7153289AA14C00048B2D /* Kingfisher */; };
+		A21F7156289AAC7700048B2D /* AddNewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F7155289AAC7700048B2D /* AddNewPostViewModel.swift */; };
 		A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58A2894001C002385F4 /* AppDelegate.swift */; };
 		A27CE58F2894001C002385F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58E2894001C002385F4 /* LoginViewController.swift */; };
 		A27CE59428940020002385F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59328940020002385F4 /* Assets.xcassets */; };
@@ -59,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A21F714D289A9A0100048B2D /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		A21F7155289AAC7700048B2D /* AddNewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPostViewModel.swift; sourceTree = "<group>"; };
 		A27CE5872894001C002385F4 /* Pika Pika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pika Pika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27CE58A2894001C002385F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A27CE58E2894001C002385F4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -104,9 +110,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A21F7154289AA14C00048B2D /* Kingfisher in Frameworks */,
 				A27CE5BF28940B0D002385F4 /* SnapKit in Frameworks */,
 				A27CE5F72894F068002385F4 /* FirebaseAuth in Frameworks */,
 				A27CE5F92894F068002385F4 /* FirebaseFirestore in Frameworks */,
+				A21F7151289A9A2C00048B2D /* FirebaseStorage in Frameworks */,
 				A27CE5FB2894F068002385F4 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,12 +129,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A21F714F289A9A2C00048B2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A27CE57E2894001C002385F4 = {
 			isa = PBXGroup;
 			children = (
 				A27CE5892894001C002385F4 /* Pika Pika */,
 				A27CE5A028940020002385F4 /* Pika PikaTests */,
 				A27CE5882894001C002385F4 /* Products */,
+				A21F714F289A9A2C00048B2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,6 +202,7 @@
 				A27CE5C828941E69002385F4 /* FirebaseAuthService.swift */,
 				A27CE5FE2894F31F002385F4 /* UserService.swift */,
 				A27CE6042894F82D002385F4 /* TimelineService.swift */,
+				A21F714D289A9A0100048B2D /* ImageUploadService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -207,6 +224,7 @@
 			children = (
 				A27CE5D1289425EE002385F4 /* AuthenticationViewModel.swift */,
 				A27CE60C289517B9002385F4 /* TimelineViewModel.swift */,
+				A21F7155289AAC7700048B2D /* AddNewPostViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -290,6 +308,8 @@
 				A27CE5F62894F068002385F4 /* FirebaseAuth */,
 				A27CE5F82894F068002385F4 /* FirebaseFirestore */,
 				A27CE5FA2894F068002385F4 /* FirebaseFirestoreSwift */,
+				A21F7150289A9A2C00048B2D /* FirebaseStorage */,
+				A21F7153289AA14C00048B2D /* Kingfisher */,
 			);
 			productName = "Pika Pika";
 			productReference = A27CE5872894001C002385F4 /* Pika Pika.app */;
@@ -344,6 +364,7 @@
 			packageReferences = (
 				A27CE5BD28940B0D002385F4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				A27CE5F52894F068002385F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A21F7152289AA14C00048B2D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A27CE5882894001C002385F4 /* Products */;
 			projectDirPath = "";
@@ -392,6 +413,7 @@
 				A27CE5EA28944E8D002385F4 /* AccountViewController.swift in Sources */,
 				A27CE5E628944830002385F4 /* UIViewX.swift in Sources */,
 				A27CE5E828944C8E002385F4 /* UIWindowX.swift in Sources */,
+				A21F714E289A9A0100048B2D /* ImageUploadService.swift in Sources */,
 				A27CE6012894F4CC002385F4 /* User.swift in Sources */,
 				A27CE60B28950D4F002385F4 /* RegisterViewController.swift in Sources */,
 				A27CE5D2289425EE002385F4 /* AuthenticationViewModel.swift in Sources */,
@@ -406,6 +428,7 @@
 				A2CE8B6328994647002DD5E3 /* ImagePicker.swift in Sources */,
 				A2CE8B57289651BE002DD5E3 /* ThreedotMenu.swift in Sources */,
 				A27CE60D289517B9002385F4 /* TimelineViewModel.swift in Sources */,
+				A21F7156289AAC7700048B2D /* AddNewPostViewModel.swift in Sources */,
 				A27CE61428958066002385F4 /* DateX.swift in Sources */,
 				A27CE6092895088A002385F4 /* BottomLabelView.swift in Sources */,
 				A27CE6032894F4FD002385F4 /* Feed.swift in Sources */,
@@ -689,6 +712,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A21F7152289AA14C00048B2D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		A27CE5BD28940B0D002385F4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -708,6 +739,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A21F7150289A9A2C00048B2D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A27CE5F52894F068002385F4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		A21F7153289AA14C00048B2D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A21F7152289AA14C00048B2D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		A27CE5BE28940B0D002385F4 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A27CE5BD28940B0D002385F4 /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class FeedTableViewCell: UITableViewCell {
     
@@ -112,21 +113,29 @@ final class FeedTableViewCell: UITableViewCell {
         super.prepareForReuse()
         postImageView.image = nil
         postImageView.snp.removeConstraints()
+        postImageView.kf.cancelDownloadTask()
     }
     
     func configure(feed: Feed) {
         nameLabel.text = feed.fullname
         descriptionLabel.text = feed.description
         timestampLabel.text = Date().offset(from: feed.timestamp.dateValue())
-        if let image = feed.getImage() {
-            let ratio = image.size.height / image.size.width
-            let aspectWidth = (UIScreen.main.bounds.width - 12) * ratio
+        
+        // Sizing image
+        if let imageAspectHeight = feed.imageAspectHeight {
             postImageView.snp.makeConstraints { make in
-                make.height.lessThanOrEqualTo(aspectWidth)
+                make.height.equalTo(imageAspectHeight).priority(.high)  // set priority to below 1000 to resolve constraint warning
             }
+        }
+        
+        // Local image
+        if let image = feed.getImage() {
             postImageView.image = image
-        } else {
-            // TODO: Load from server
+        }
+        
+        // Remote image
+        if let url = feed.imageURL {
+            postImageView.kf.setImage(with: URL(string: url), options: [.transition(.fade(0.1))])
         }
     }
 }

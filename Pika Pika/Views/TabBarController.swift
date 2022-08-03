@@ -18,11 +18,11 @@ final class TabBarController: UITabBarController {
     private func setUp() {
         // Style
         view.tintAdjustmentMode = .normal
-        let appearance = UITabBarAppearance()
-        appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-        appearance.backgroundColor = .systemBackground.withAlphaComponent(0.1)
-        UITabBar.appearance().standardAppearance = appearance
         if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .white
+            UITabBar.appearance().standardAppearance = appearance
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
         UITabBar.appearance().tintColor = .accentColor

@@ -72,18 +72,18 @@ final class TimelineViewController: UIViewController {
         }
 
         // Upload to Server
-//        Task.detached {
-//            let result = await self.viewModel.post(feed: feed)
-//            Task { @MainActor in
-//                switch result {
-//                case .success(let id):
-//                    // Update auto-id
-//                    self.datasource[0].id = id
-//                case .failure(let error):
-//                    UIAlertController.errorAlert(message: error.localizedDescription)
-//                }
-//            }
-//        }
+        Task.detached {
+            let result = await self.viewModel.post(feed: feed)
+            Task { @MainActor in
+                switch result {
+                case .success(let feed):
+                    // new feed contains auto-id and imageURL from Server
+                    self.datasource[0] = feed
+                case .failure(let error):
+                    UIAlertController.errorAlert(message: error.localizedDescription)
+                }
+            }
+        }
     }
     
     

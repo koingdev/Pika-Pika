@@ -24,7 +24,9 @@ final class TimelineService: TimelineServiceType {
                 "uid": uid,
                 "description": feed.description,
                 "timestamp": feed.timestamp,
-                "fullname": feed.fullname
+                "fullname": feed.fullname,
+                "imageURL": feed.imageURL as Any,
+                "imageAspectHeight": feed.imageAspectHeight as Any
             ] as [String: Any]
             
             let document = Firestore.firestore()

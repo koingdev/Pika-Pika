@@ -12,6 +12,7 @@ final class AddNewPostViewController: UIViewController {
     
     var didTappedSubmit: ((Feed) -> Void)?
     private var imagePicker: ImagePicker!
+    private let viewModel = AddNewPostViewModel()
     
     deinit {
         debugPrint("DEINIT: \(Self.self)")
@@ -50,14 +51,14 @@ final class AddNewPostViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.equalTo(imageView.snp.width)
+            make.leading.equalToSuperview().inset(20)
+            make.height.width.equalTo(UIScreen.main.bounds.width * 0.6)
         }
         return imageView
     }()
     
     private lazy var closeButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
         button.contentVerticalAlignment = .fill
         button.imageView?.contentMode = .scaleAspectFit
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
@@ -66,7 +67,7 @@ final class AddNewPostViewController: UIViewController {
     }()
     
     private lazy var submitButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
         button.contentVerticalAlignment = .fill
         button.imageView?.contentMode = .scaleAspectFit
         button.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
@@ -93,9 +94,7 @@ final class AddNewPostViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            self.textView.becomeFirstResponder()
-        }
+        textView.becomeFirstResponder()
     }
     
     private func setup() {
@@ -113,12 +112,7 @@ final class AddNewPostViewController: UIViewController {
         }
         
         submitButton.on(.touchUpInside) { [weak self] _ in
-            if let description = self?.textView.text?.trimmingCharacters(in: .whitespaces), !description.isEmpty,
-               let uid = FirebaseAuthService.currentUser?.uid,
-               let fullname = AuthenticationViewModel.shared.loggedInUser?.fullname
-            {
-                var feed = Feed.make(description: description, uid: uid, fullname: fullname)
-                feed.imageData = self?.imageView.image?.jpegData(compressionQuality: 0.8)
+            if let feed = self?.viewModel.prepareFeed(description: self?.textView.text, image: self?.imageView.image) {
                 self?.didTappedSubmit?(feed)
                 self?.dismiss(animated: true)
             }

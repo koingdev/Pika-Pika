@@ -58,6 +58,7 @@ final class AuthenticationViewModel {
                 "fullname": fullname,
                 "uid": uid
             ])
+            // TODO: update loggedIn user
         case .failure(let error):
             return .failure(error)
         }
