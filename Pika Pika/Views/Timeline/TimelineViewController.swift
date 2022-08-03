@@ -39,6 +39,8 @@ final class TimelineViewController: UIViewController {
         return imageView
     }()
     
+    private let refreshControl = UIRefreshControl()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "\(FeedTableViewCell.self)")
@@ -53,6 +55,7 @@ final class TimelineViewController: UIViewController {
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+        tableView.refreshControl = refreshControl
         return tableView
     }()
     
@@ -60,6 +63,7 @@ final class TimelineViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         _ = brandingImageView
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
         fetch()
     }
     
@@ -98,6 +102,7 @@ final class TimelineViewController: UIViewController {
             Task { @MainActor in
                 self.datasource = result
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
@@ -124,6 +129,11 @@ final class TimelineViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    
+    @objc private func didPullToRefresh() {
+        fetch()
     }
     
 }
