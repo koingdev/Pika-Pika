@@ -129,7 +129,7 @@ final class FeedTableViewCell: UITableViewCell {
         }
         
         // Local image
-        if let image = feed.getImage() {
+        if let image = feed.imageData?.getImage() {
             postImageView.image = image
         }
         

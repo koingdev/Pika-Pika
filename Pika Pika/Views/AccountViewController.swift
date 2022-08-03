@@ -79,13 +79,17 @@ final class AccountViewController: UIViewController {
         view.backgroundColor = .white
         _ = profileImageView
         _ = logoutButton
-        nameLabel.text = viewModel.loggedInUser?.fullname
         
         // Action
         logoutButton.on(.touchUpInside) { [weak self] _ in
             self?.viewModel.logout()
             self?.view.window?.rootViewController = LoginViewController()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        nameLabel.text = viewModel.loggedInUser?.fullname
     }
     
 }

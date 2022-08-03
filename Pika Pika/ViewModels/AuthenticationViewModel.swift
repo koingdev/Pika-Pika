@@ -24,7 +24,9 @@ final class AuthenticationViewModel {
         self.authService = authService
         self.userService = userService
         
-        fetchUserIfFirebaseLoggedIn()
+        Task {
+            await fetchUserIfNeeded()
+        }
     }
     
     func login(email: String, password: String) async -> Result<Void, Error> {
@@ -35,11 +37,8 @@ final class AuthenticationViewModel {
         let result = await authService.login(email: email, password: password)
         switch result {
         case .success(let uid):
-            if let user = await userService.fetch(withUID: uid) {
-                Self.shared.loggedInUser = user
-            }
+            await fetchUserIfNeeded(withUID: uid)
             return .success(())
-
         case .failure(let error):
             return .failure(error)
         }
@@ -53,12 +52,12 @@ final class AuthenticationViewModel {
         let result = await authService.register(email: email, password: password)
         switch result {
         case .success(let uid):
+            loggedInUser = User(id: uid, email: email, fullname: fullname)
             return await userService.save(data: [
                 "email": email,
                 "fullname": fullname,
                 "uid": uid
             ])
-            // TODO: update loggedIn user
         case .failure(let error):
             return .failure(error)
         }
@@ -66,7 +65,7 @@ final class AuthenticationViewModel {
     
     func logout() {
         authService.logout()
-        Self.shared.loggedInUser = nil
+        loggedInUser = nil
     }
     
     func isLoggedIn() -> Bool {
@@ -83,12 +82,10 @@ final class AuthenticationViewModel {
     }
     
     
-    private func fetchUserIfFirebaseLoggedIn() {
-        if let uid = FirebaseAuthService.currentUser?.uid {
-            Task {
-                if let user = await userService.fetch(withUID: uid) {
-                    Self.shared.loggedInUser = user
-                }
+    private func fetchUserIfNeeded(withUID uid: ID? = FirebaseAuthService.currentUser?.uid) async {
+        if let uid = uid {
+            if let user = await userService.fetch(withUID: uid) {
+                loggedInUser = user
             }
         }
     }

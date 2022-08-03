@@ -9,15 +9,19 @@ import Foundation
 import UIKit
 
 final class AddNewPostViewModel {
-    func prepareFeed(description: String?, image: UIImage?) -> Feed? {
+
+    func prepareFeed(
+        description: String?,
+        image: UIImage?
+    ) -> Feed? {
         guard let description = description?.trimmingCharacters(in: .whitespaces), !description.isEmpty,
-              let uid = FirebaseAuthService.currentUser?.uid,
-              let fullname = AuthenticationViewModel.shared.loggedInUser?.fullname
+              let loggedInUser = AuthenticationViewModel.shared.loggedInUser,
+              let uid = loggedInUser.id
         else {
             return nil
         }
 
-        var feed = Feed.make(description: description, uid: uid, fullname: fullname)
+        var feed = Feed.make(description: description, uid: uid, fullname: loggedInUser.fullname)
         if let image = image {
             feed.imageData = image.jpegData(compressionQuality: 0.5)
             feed.imageAspectHeight = calculateImageAspectHeight(image: image)
