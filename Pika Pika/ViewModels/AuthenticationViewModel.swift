@@ -16,7 +16,7 @@ final class AuthenticationViewModel {
     private let authService: FirebaseAuthServiceType
     private let userService: UserServiceType
     
-    private init(
+    init(
         authService: FirebaseAuthServiceType = FirebaseAuthService(),
         userService: UserServiceType = UserService()
     ) {

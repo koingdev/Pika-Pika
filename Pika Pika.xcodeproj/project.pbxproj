@@ -50,6 +50,9 @@
 		A2CE8B57289651BE002DD5E3 /* ThreedotMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */; };
 		A2CE8B6028967819002DD5E3 /* ArrayX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B5F28967819002DD5E3 /* ArrayX.swift */; };
 		A2CE8B6328994647002DD5E3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CE8B6228994647002DD5E3 /* ImagePicker.swift */; };
+		A2FEF245289C107E003E5BCB /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF242289C107E003E5BCB /* MockUserService.swift */; };
+		A2FEF246289C107E003E5BCB /* MockFirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF243289C107E003E5BCB /* MockFirebaseAuthService.swift */; };
+		A2FEF248289C10C8003E5BCB /* AuthenticationViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF247289C10C8003E5BCB /* AuthenticationViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		A2CE8B56289651BE002DD5E3 /* ThreedotMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreedotMenu.swift; sourceTree = "<group>"; };
 		A2CE8B5F28967819002DD5E3 /* ArrayX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayX.swift; sourceTree = "<group>"; };
 		A2CE8B6228994647002DD5E3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		A2FEF242289C107E003E5BCB /* MockUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
+		A2FEF243289C107E003E5BCB /* MockFirebaseAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuthService.swift; sourceTree = "<group>"; };
+		A2FEF247289C10C8003E5BCB /* AuthenticationViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,8 @@
 		A27CE5A028940020002385F4 /* Pika PikaTests */ = {
 			isa = PBXGroup;
 			children = (
+				A2FEF247289C10C8003E5BCB /* AuthenticationViewModelTest.swift */,
+				A2FEF241289C107E003E5BCB /* Mocks */,
 				A27CE5A128940020002385F4 /* Pika_PikaTests.swift */,
 			);
 			path = "Pika PikaTests";
@@ -285,6 +293,15 @@
 				A2CE8B6228994647002DD5E3 /* ImagePicker.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A2FEF241289C107E003E5BCB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A2FEF242289C107E003E5BCB /* MockUserService.swift */,
+				A2FEF243289C107E003E5BCB /* MockFirebaseAuthService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +458,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2FEF245289C107E003E5BCB /* MockUserService.swift in Sources */,
 				A27CE5A228940020002385F4 /* Pika_PikaTests.swift in Sources */,
+				A2FEF246289C107E003E5BCB /* MockFirebaseAuthService.swift in Sources */,
+				A2FEF248289C10C8003E5BCB /* AuthenticationViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
