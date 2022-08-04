@@ -61,33 +61,8 @@ final class TimelineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        _ = brandingImageView
-        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+        setup()
         fetch()
-    }
-    
-
-    func addNewFeed(feed: Feed) {
-        // Insert to tableView first for performance
-        datasource.insert(feed, at: 0)
-        tableView.performBatchUpdates {
-            tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
-        }
-
-        // Upload to Server
-        Task.detached {
-            let result = await self.viewModel.post(feed: feed)
-            Task { @MainActor in
-                switch result {
-                case .success(let feed):
-                    // new feed contains auto-id and imageURL from Server
-                    self.datasource[0] = feed
-                case .failure(let error):
-                    UIAlertController.errorAlert(message: error.localizedDescription)
-                }
-            }
-        }
     }
     
     
@@ -96,6 +71,12 @@ final class TimelineViewController: UIViewController {
     //MARK: - Private
     ////////////////////////////////////////////////////////////////
 
+    private func setup() {
+        view.backgroundColor = .white
+        _ = brandingImageView
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
+    }
+    
     private func fetch() {
         Task.detached { [self] in
             let result = await self.viewModel.fetch()
@@ -126,6 +107,31 @@ final class TimelineViewController: UIViewController {
                     Task { @MainActor in
                         UIAlertController.errorAlert(message: error.localizedDescription)
                     }
+                }
+            }
+        }
+    }
+    
+    
+    func addNewFeed(feed: Feed) {
+        // Insert to tableView first for performance
+        datasource.insert(feed, at: 0)
+        tableView.performBatchUpdates {
+            tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+        }
+
+        // Upload to Server
+        Task.detached {
+            let result = await self.viewModel.post(feed: feed)
+            Task { @MainActor in
+                switch result {
+                case .success(let feed):
+                    // New feed contains auto-id and imageURL from Server
+                    if self.datasource.exists(index: 0) {
+                        self.datasource[0] = feed
+                    }
+                case .failure(let error):
+                    UIAlertController.errorAlert(message: error.localizedDescription)
                 }
             }
         }

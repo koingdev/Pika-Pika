@@ -29,7 +29,9 @@ class RegisterViewController: LoginViewController {
     
     override func authenticate() {
         Task {
+            authenticateButton.loadingIndicator(show: true)
             let result = await viewModel.register(email: emailTextField.text ?? "", password: passwordTextField.text ?? "", fullname: fullnameTextField.text ?? "")
+            authenticateButton.loadingIndicator(show: false)
             resultHandler(result)
         }
     }

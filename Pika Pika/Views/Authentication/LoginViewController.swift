@@ -43,7 +43,9 @@ class LoginViewController: UIViewController {
     
     open func authenticate() {
         Task {
+            authenticateButton.loadingIndicator(show: true)
             let result = await viewModel.login(email: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+            authenticateButton.loadingIndicator(show: false)
             resultHandler(result)
         }
     }

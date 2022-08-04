@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Root
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.backgroundColor = .white
         
         // Check previous session
         if AuthenticationViewModel.shared.isLoggedIn() {

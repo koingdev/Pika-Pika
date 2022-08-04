@@ -11,6 +11,7 @@
 		A21F7151289A9A2C00048B2D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A21F7150289A9A2C00048B2D /* FirebaseStorage */; };
 		A21F7154289AA14C00048B2D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A21F7153289AA14C00048B2D /* Kingfisher */; };
 		A21F7156289AAC7700048B2D /* AddNewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F7155289AAC7700048B2D /* AddNewPostViewModel.swift */; };
+		A21F7158289AD57500048B2D /* UIButton+Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21F7157289AD57500048B2D /* UIButton+Indicator.swift */; };
 		A27CE58B2894001C002385F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58A2894001C002385F4 /* AppDelegate.swift */; };
 		A27CE58F2894001C002385F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58E2894001C002385F4 /* LoginViewController.swift */; };
 		A27CE59428940020002385F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59328940020002385F4 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		A21F714D289A9A0100048B2D /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
 		A21F7155289AAC7700048B2D /* AddNewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPostViewModel.swift; sourceTree = "<group>"; };
+		A21F7157289AD57500048B2D /* UIButton+Indicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Indicator.swift"; sourceTree = "<group>"; };
 		A27CE5872894001C002385F4 /* Pika Pika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pika Pika.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A27CE58A2894001C002385F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A27CE58E2894001C002385F4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				A27CE5E728944C8E002385F4 /* UIWindowX.swift */,
 				A27CE61328958066002385F4 /* DateX.swift */,
 				A2CE8B5F28967819002DD5E3 /* ArrayX.swift */,
+				A21F7157289AD57500048B2D /* UIButton+Indicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				A27CE5EF2894C195002385F4 /* TextField.swift in Sources */,
 				A27CE6052894F82D002385F4 /* TimelineService.swift in Sources */,
 				A27CE60F28954A0B002385F4 /* AddNewPostViewController.swift in Sources */,
+				A21F7158289AD57500048B2D /* UIButton+Indicator.swift in Sources */,
 				A27CE5EA28944E8D002385F4 /* AccountViewController.swift in Sources */,
 				A27CE5E628944830002385F4 /* UIViewX.swift in Sources */,
 				A27CE5E828944C8E002385F4 /* UIWindowX.swift in Sources */,

@@ -9,6 +9,10 @@ import Foundation
 
 extension Array {
     subscript(safe index: Index) -> Element? {
-        0 <= index && index < count ? self[index] : nil
+        exists(index: index) ? self[index] : nil
+    }
+    
+    func exists(index: Index) -> Bool {
+        0 <= index && index < count
     }
 }
