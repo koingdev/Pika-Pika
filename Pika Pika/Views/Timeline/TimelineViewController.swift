@@ -152,7 +152,7 @@ final class TimelineViewController: UIViewController {
 ////////////////////////////////////////////////////////////////
 
 
-extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
+extension TimelineViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count
     }

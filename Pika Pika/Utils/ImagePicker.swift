@@ -22,10 +22,9 @@ final class ImagePicker: NSObject {
         self.pickerController.mediaTypes = ["public.image"]
     }
     
-    func present() {
-        let type: UIImagePickerController.SourceType = .photoLibrary
-        guard UIImagePickerController.isSourceTypeAvailable(type) else { return }
-        pickerController.sourceType = type
+    func present(_ sourceType: UIImagePickerController.SourceType) {
+        guard UIImagePickerController.isSourceTypeAvailable(sourceType) else { return }
+        pickerController.sourceType = sourceType
         presentationController?.present(pickerController, animated: true)
     }
 }

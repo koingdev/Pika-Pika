@@ -7,12 +7,11 @@
 
 import Foundation
 
-/// This viewModel is shared globally in a thread-safe manner
 final class AuthenticationViewModel {
 
     static let shared = AuthenticationViewModel()
     
-    @Atomic private(set) var loggedInUser: User?
+    @Published private(set) var loggedInUser: User?
     
     private let authService: FirebaseAuthServiceType
     private let userService: UserServiceType

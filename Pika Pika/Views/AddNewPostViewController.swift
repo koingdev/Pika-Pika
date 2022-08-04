@@ -33,8 +33,9 @@ final class AddNewPostViewController: UIViewController {
         textView.isEditable = true
         textView.delegate = self
         let bar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
-        let choosePhoto = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(choosePhoto))
-        bar.items = [choosePhoto]
+        let photoButtonItem = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(choosePhoto))
+        let cameraButtonItem = UIBarButtonItem(image: UIImage(systemName: "camera"), style: .plain, target: self, action: #selector(openCamera))
+        bar.items = [cameraButtonItem, photoButtonItem]
         bar.sizeToFit()
         textView.inputAccessoryView = bar
         view.addSubview(textView)
@@ -120,7 +121,11 @@ final class AddNewPostViewController: UIViewController {
     }
     
     @objc private func choosePhoto() {
-        imagePicker.present()
+        imagePicker.present(.photoLibrary)
+    }
+    
+    @objc private func openCamera() {
+        imagePicker.present(.camera)
     }
 }
 

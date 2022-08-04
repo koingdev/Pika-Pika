@@ -5,13 +5,15 @@
 //  Created by KoingDev on 30/7/22.
 //
 
-import Foundation
 import UIKit
+import Combine
 import SnapKit
+import SwiftUI
 
 final class AccountViewController: UIViewController {
     
     private let viewModel: AuthenticationViewModel
+    private var cancellable = Set<AnyCancellable>()
     
     init(viewModel: AuthenticationViewModel = AuthenticationViewModel.shared) {
         self.viewModel = viewModel
@@ -36,8 +38,6 @@ final class AccountViewController: UIViewController {
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.width.height.equalTo(100)
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(44)
         }
         imageView.tintAdjustmentMode = .normal
         imageView.tintColor = .systemMint
@@ -50,13 +50,31 @@ final class AccountViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 1
         label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 28)
+        label.font = .systemFont(ofSize: 24)
         view.addSubview(label)
-        label.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(profileImageView.snp.bottom).offset(18)
-        }
         return label
+    }()
+    
+    private lazy var emailLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 1
+        label.textColor = .tertiaryLabel
+        label.font = .systemFont(ofSize: 20)
+        view.addSubview(label)
+        return label
+    }()
+    
+    private lazy var hStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [profileImageView, nameLabel, emailLabel])
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 12
+        view.addSubview(stack)
+        stack.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(12)
+            make.top.equalToSuperview().offset(44)
+        }
+        return stack
     }()
     
     private lazy var logoutButton: UIButton = {
@@ -70,6 +88,7 @@ final class AccountViewController: UIViewController {
         button.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(24)
+            make.height.equalTo(48)
         }
         return button
     }()
@@ -77,19 +96,20 @@ final class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        _ = profileImageView
+        _ = hStack
         _ = logoutButton
+        
+        // Full Name
+        viewModel.$loggedInUser.receive(on: DispatchQueue.main).sink { [weak self] user in
+            self?.nameLabel.text = user?.fullname
+            self?.emailLabel.text = user?.email
+        }.store(in: &cancellable)
         
         // Action
         logoutButton.on(.touchUpInside) { [weak self] _ in
             self?.viewModel.logout()
             self?.view.window?.rootViewController = LoginViewController()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        nameLabel.text = viewModel.loggedInUser?.fullname
     }
     
 }
