@@ -131,10 +131,7 @@ final class FeedTableViewCell: UITableViewCell {
         // Local image
         if let image = feed.imageData?.getImage() {
             postImageView.image = image
-        }
-        
-        // Remote image
-        if let url = feed.imageURL {
+        } else if let url = feed.imageURL { // Remote image
             postImageView.kf.setImage(with: URL(string: url), options: [.transition(.fade(0.1))])
         }
     }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class TimelineViewController: UIViewController {
     
@@ -49,6 +50,7 @@ final class TimelineViewController: UIViewController {
         tableView.separatorInset = .zero
         tableView.allowsSelection = false
         tableView.dataSource = self
+        tableView.prefetchDataSource = self
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(brandingImageView.snp.bottom).offset(8)
@@ -156,10 +158,10 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(FeedTableViewCell.self)", for: indexPath) as? FeedTableViewCell,
-              let feed = datasource[safe: indexPath.row] else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(FeedTableViewCell.self)", for: indexPath) as? FeedTableViewCell, let feed = datasource[safe: indexPath.row] else { return UITableViewCell() }
 
         cell.configure(feed: feed)
+
         cell.didTappedThreedot = { [weak self] selectedCell in
             // Get the current selectedIndexPath from tableView.indexPath(for:)
             // Because insertRows(at:) and deleteRows(at:) don't refresh the whole cells
@@ -178,6 +180,29 @@ extension TimelineViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
+////////////////////////////////////////////////////////////////
+//MARK: - Prefetching Image
+////////////////////////////////////////////////////////////////
+
+extension TimelineViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        ImagePrefetcher(urls: getURLs(fromIndexPaths: indexPaths)).start()
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        ImagePrefetcher(urls: getURLs(fromIndexPaths: indexPaths)).stop()
+    }
+    
+    private func getURLs(fromIndexPaths indexPaths: [IndexPath]) -> [URL] {
+        let urls: [URL] = indexPaths.compactMap {
+            guard let imageURL = datasource[safe: $0.row]?.imageURL, let url = URL(string: imageURL) else { return nil }
+            return url
+        }
+        return urls
+    }
+    
+}
 
 ////////////////////////////////////////////////////////////////
 //MARK: - PopoverDelegate
