@@ -16,7 +16,6 @@
 		A27CE58F2894001C002385F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE58E2894001C002385F4 /* LoginViewController.swift */; };
 		A27CE59428940020002385F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59328940020002385F4 /* Assets.xcassets */; };
 		A27CE59728940020002385F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A27CE59528940020002385F4 /* LaunchScreen.storyboard */; };
-		A27CE5A228940020002385F4 /* Pika_PikaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5A128940020002385F4 /* Pika_PikaTests.swift */; };
 		A27CE5BF28940B0D002385F4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A27CE5BE28940B0D002385F4 /* SnapKit */; };
 		A27CE5C12894106B002385F4 /* UIColorX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27CE5C02894106B002385F4 /* UIColorX.swift */; };
 		A27CE5C628941A25002385F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A27CE5C528941A25002385F4 /* GoogleService-Info.plist */; };
@@ -56,6 +55,7 @@
 		A2FEF24A289C974A003E5BCB /* TimelineViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF249289C974A003E5BCB /* TimelineViewModelTest.swift */; };
 		A2FEF24C289C979B003E5BCB /* MockTimelineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF24B289C979B003E5BCB /* MockTimelineService.swift */; };
 		A2FEF24E289C984A003E5BCB /* MockImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF24D289C984A003E5BCB /* MockImageUploadService.swift */; };
+		A2FEF250289CA13A003E5BCB /* AddNewPostViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF24F289CA13A003E5BCB /* AddNewPostViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,6 @@
 		A27CE59628940020002385F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A27CE59828940020002385F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A27CE59D28940020002385F4 /* Pika PikaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pika PikaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A27CE5A128940020002385F4 /* Pika_PikaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pika_PikaTests.swift; sourceTree = "<group>"; };
 		A27CE5C02894106B002385F4 /* UIColorX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorX.swift; sourceTree = "<group>"; };
 		A27CE5C528941A25002385F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A27CE5C828941E69002385F4 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		A2FEF249289C974A003E5BCB /* TimelineViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModelTest.swift; sourceTree = "<group>"; };
 		A2FEF24B289C979B003E5BCB /* MockTimelineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimelineService.swift; sourceTree = "<group>"; };
 		A2FEF24D289C984A003E5BCB /* MockImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageUploadService.swift; sourceTree = "<group>"; };
+		A2FEF24F289CA13A003E5BCB /* AddNewPostViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPostViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +192,8 @@
 			children = (
 				A2FEF247289C10C8003E5BCB /* AuthenticationViewModelTest.swift */,
 				A2FEF249289C974A003E5BCB /* TimelineViewModelTest.swift */,
+				A2FEF24F289CA13A003E5BCB /* AddNewPostViewModelTest.swift */,
 				A2FEF241289C107E003E5BCB /* Mocks */,
-				A27CE5A128940020002385F4 /* Pika_PikaTests.swift */,
 			);
 			path = "Pika PikaTests";
 			sourceTree = "<group>";
@@ -467,11 +467,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2FEF250289CA13A003E5BCB /* AddNewPostViewModelTest.swift in Sources */,
 				A2FEF24C289C979B003E5BCB /* MockTimelineService.swift in Sources */,
 				A2FEF24A289C974A003E5BCB /* TimelineViewModelTest.swift in Sources */,
 				A2FEF245289C107E003E5BCB /* MockUserService.swift in Sources */,
 				A2FEF24E289C984A003E5BCB /* MockImageUploadService.swift in Sources */,
-				A27CE5A228940020002385F4 /* Pika_PikaTests.swift in Sources */,
 				A2FEF246289C107E003E5BCB /* MockFirebaseAuthService.swift in Sources */,
 				A2FEF248289C10C8003E5BCB /* AuthenticationViewModelTest.swift in Sources */,
 			);

@@ -11,7 +11,7 @@ final class AuthenticationViewModel {
 
     static let shared = AuthenticationViewModel()
     
-    @Published private(set) var loggedInUser: User?
+    @Published var loggedInUser: User?
     
     // Dependencies
     private let authService: FirebaseAuthServiceType

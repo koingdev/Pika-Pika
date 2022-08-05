@@ -12,10 +12,11 @@ final class AddNewPostViewModel {
 
     func prepareFeed(
         description: String?,
-        image: UIImage?
+        image: UIImage?,
+        authViewModel: AuthenticationViewModel = AuthenticationViewModel.shared
     ) -> Feed? {
         guard let description = description?.trimmingCharacters(in: .whitespaces), !description.isEmpty,
-              let loggedInUser = AuthenticationViewModel.shared.loggedInUser,
+              let loggedInUser = authViewModel.loggedInUser,
               let uid = loggedInUser.id
         else {
             return nil
