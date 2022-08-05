@@ -10,7 +10,7 @@ import FirebaseAuth
 
 @testable import Pika_Pika
 
-class MockFirebaseAuthService: FirebaseAuthServiceType {
+final class MockFirebaseAuthService: FirebaseAuthServiceType {
 
     var mockResult: Result<String, Error> = .failure(AppError.userNotFound)
     
@@ -18,11 +18,11 @@ class MockFirebaseAuthService: FirebaseAuthServiceType {
     static var currentUser: FirebaseAuth.User? = nil
     
     func login(email: String, password: String) async -> Result<String, Error> {
-        return mockResult
+        mockResult
     }
     
     func register(email: String, password: String) async -> Result<String, Error> {
-        return mockResult
+        mockResult
     }
     
     func logout() { }

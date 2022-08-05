@@ -13,7 +13,7 @@ class AuthenticationViewModelTest: XCTestCase {
     
     var viewModel: AuthenticationViewModel!
     
-    // Mocks
+    // Dependencies
     var mockAuthService = MockFirebaseAuthService()
     var mockUserService = MockUserService()
 
@@ -106,6 +106,28 @@ class AuthenticationViewModelTest: XCTestCase {
     }
     
     
+    func testIsValidWithValidCredential() {
+        // Given
+        let invalidEmail = "abc@abc"
+        let validPassword = "123"
+        
+        // When
+        let result = viewModel.isValid(email: invalidEmail, password: validPassword)
+        
+        // Then
+        XCTAssertTrue(result == false)
+    }
     
+    func testIsValidWithInvalidCredential() {
+        // Given
+        let invalidEmail = "abc@abc"
+        let validPassword = "123456"
+        
+        // When
+        let result = viewModel.isValid(email: invalidEmail, password: validPassword)
+        
+        // Then
+        XCTAssertTrue(result == false)
+    }
 
 }

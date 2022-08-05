@@ -53,6 +53,9 @@
 		A2FEF245289C107E003E5BCB /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF242289C107E003E5BCB /* MockUserService.swift */; };
 		A2FEF246289C107E003E5BCB /* MockFirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF243289C107E003E5BCB /* MockFirebaseAuthService.swift */; };
 		A2FEF248289C10C8003E5BCB /* AuthenticationViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF247289C10C8003E5BCB /* AuthenticationViewModelTest.swift */; };
+		A2FEF24A289C974A003E5BCB /* TimelineViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF249289C974A003E5BCB /* TimelineViewModelTest.swift */; };
+		A2FEF24C289C979B003E5BCB /* MockTimelineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF24B289C979B003E5BCB /* MockTimelineService.swift */; };
+		A2FEF24E289C984A003E5BCB /* MockImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FEF24D289C984A003E5BCB /* MockImageUploadService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,9 @@
 		A2FEF242289C107E003E5BCB /* MockUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
 		A2FEF243289C107E003E5BCB /* MockFirebaseAuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuthService.swift; sourceTree = "<group>"; };
 		A2FEF247289C10C8003E5BCB /* AuthenticationViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelTest.swift; sourceTree = "<group>"; };
+		A2FEF249289C974A003E5BCB /* TimelineViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModelTest.swift; sourceTree = "<group>"; };
+		A2FEF24B289C979B003E5BCB /* MockTimelineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTimelineService.swift; sourceTree = "<group>"; };
+		A2FEF24D289C984A003E5BCB /* MockImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageUploadService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				A2FEF247289C10C8003E5BCB /* AuthenticationViewModelTest.swift */,
+				A2FEF249289C974A003E5BCB /* TimelineViewModelTest.swift */,
 				A2FEF241289C107E003E5BCB /* Mocks */,
 				A27CE5A128940020002385F4 /* Pika_PikaTests.swift */,
 			);
@@ -298,8 +305,10 @@
 		A2FEF241289C107E003E5BCB /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				A2FEF242289C107E003E5BCB /* MockUserService.swift */,
 				A2FEF243289C107E003E5BCB /* MockFirebaseAuthService.swift */,
+				A2FEF242289C107E003E5BCB /* MockUserService.swift */,
+				A2FEF24B289C979B003E5BCB /* MockTimelineService.swift */,
+				A2FEF24D289C984A003E5BCB /* MockImageUploadService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -458,7 +467,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2FEF24C289C979B003E5BCB /* MockTimelineService.swift in Sources */,
+				A2FEF24A289C974A003E5BCB /* TimelineViewModelTest.swift in Sources */,
 				A2FEF245289C107E003E5BCB /* MockUserService.swift in Sources */,
+				A2FEF24E289C984A003E5BCB /* MockImageUploadService.swift in Sources */,
 				A27CE5A228940020002385F4 /* Pika_PikaTests.swift in Sources */,
 				A2FEF246289C107E003E5BCB /* MockFirebaseAuthService.swift in Sources */,
 				A2FEF248289C10C8003E5BCB /* AuthenticationViewModelTest.swift in Sources */,

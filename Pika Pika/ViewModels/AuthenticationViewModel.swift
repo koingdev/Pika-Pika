@@ -13,6 +13,7 @@ final class AuthenticationViewModel {
     
     @Published private(set) var loggedInUser: User?
     
+    // Dependencies
     private let authService: FirebaseAuthServiceType
     private let userService: UserServiceType
     

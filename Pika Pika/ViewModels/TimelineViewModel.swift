@@ -10,6 +10,7 @@ import UIKit
 
 final class TimelineViewModel {
     
+    // Dependencies
     private let timelineService: TimelineServiceType
     private let imageUploadService: ImageUploadServiceType
     
