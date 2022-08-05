@@ -12,6 +12,10 @@ import SwiftUI
 
 final class AccountViewController: UIViewController {
     
+    private struct Constant {
+        static let buttonTitle = "Logout"
+    }
+    
     private let viewModel: AuthenticationViewModel
     private var cancellable = Set<AnyCancellable>()
     
@@ -79,7 +83,7 @@ final class AccountViewController: UIViewController {
     
     private lazy var logoutButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Logout", for: .normal)
+        button.setTitle(Constant.buttonTitle, for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
         button.layer.borderColor = UIColor.systemRed.cgColor
         button.layer.borderWidth = 1

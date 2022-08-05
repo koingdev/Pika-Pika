@@ -10,6 +10,13 @@ import SnapKit
 
 final class AddNewPostViewController: UIViewController {
     
+    private struct Constant {
+        static let photoButtonImageName = "photo"
+        static let cameraButtonImageName = "camera"
+        static let closeButtonImageName = "xmark"
+        static let submitButtonImageName = "paperplane.fill"
+    }
+    
     var didTappedSubmit: ((Feed) -> Void)?
     private var imagePicker: ImagePicker!
     private let viewModel = AddNewPostViewModel()
@@ -33,8 +40,8 @@ final class AddNewPostViewController: UIViewController {
         textView.isEditable = true
         textView.delegate = self
         let bar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
-        let photoButtonItem = UIBarButtonItem(image: UIImage(systemName: "photo"), style: .plain, target: self, action: #selector(choosePhoto))
-        let cameraButtonItem = UIBarButtonItem(image: UIImage(systemName: "camera"), style: .plain, target: self, action: #selector(openCamera))
+        let photoButtonItem = UIBarButtonItem(image: UIImage(systemName: Constant.photoButtonImageName), style: .plain, target: self, action: #selector(choosePhoto))
+        let cameraButtonItem = UIBarButtonItem(image: UIImage(systemName: Constant.cameraButtonImageName), style: .plain, target: self, action: #selector(openCamera))
         bar.items = [cameraButtonItem, photoButtonItem]
         bar.sizeToFit()
         textView.inputAccessoryView = bar
@@ -62,7 +69,7 @@ final class AddNewPostViewController: UIViewController {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
         button.contentVerticalAlignment = .fill
         button.imageView?.contentMode = .scaleAspectFit
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(systemName: Constant.closeButtonImageName), for: .normal)
         button.tintColor = .black
         return button
     }()
@@ -71,7 +78,7 @@ final class AddNewPostViewController: UIViewController {
         let button = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 44, height: 44)))
         button.contentVerticalAlignment = .fill
         button.imageView?.contentMode = .scaleAspectFit
-        button.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
+        button.setImage(UIImage(systemName: Constant.submitButtonImageName), for: .normal)
         button.tintColor = .systemMint
         return button
     }()

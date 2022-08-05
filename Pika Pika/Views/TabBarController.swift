@@ -10,6 +10,11 @@ import SnapKit
 
 final class TabBarController: UITabBarController {
     
+    private struct Constant {
+        static let timelineTabBarImageName = (normal: "house", selected: "house.fill")
+        static let accountTabBarImageName = (normal: "person", selected: "person.fill")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -39,8 +44,8 @@ final class TabBarController: UITabBarController {
         // VCs
         let timelineVC = TimelineViewController()
         let accountVC = AccountViewController()
-        timelineVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-        accountVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
+        timelineVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: Constant.timelineTabBarImageName.normal), selectedImage: UIImage(systemName: Constant.timelineTabBarImageName.selected))
+        accountVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: Constant.accountTabBarImageName.normal), selectedImage: UIImage(systemName: Constant.accountTabBarImageName.selected))
         viewControllers = [timelineVC, accountVC]
         
         // Action

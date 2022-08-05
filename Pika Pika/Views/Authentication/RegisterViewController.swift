@@ -10,17 +10,24 @@ import SnapKit
 
 class RegisterViewController: LoginViewController {
     
+    private struct Constant {
+        static let registerButtonTitle = "Register"
+        static let bottomText = ("Already have an account?", "Login")
+        static let fullnamePlaceholder = "Fullname"
+        static let fullnameImageName = "person.fill"
+    }
+    
     
     ////////////////////////////////////////////////////////////////
     //MARK: - Override
     ////////////////////////////////////////////////////////////////
 
     override var authenticateButtonTitle: String {
-        "Register"
+        Constant.registerButtonTitle
     }
 
     override var bottomLabelText: (String, String) {
-        ("Already have an account?", "Login")
+        Constant.bottomText
     }
     
     override var stackChildrens: [UIView] {
@@ -46,7 +53,7 @@ class RegisterViewController: LoginViewController {
     ////////////////////////////////////////////////////////////////
     
     private lazy var fullnameTextField: TextField = {
-        let textField = TextField(placeholder: "Fullname", leftIcon: UIImage(systemName: "person.fill"))
+        let textField = TextField(placeholder: Constant.fullnamePlaceholder, leftIcon: UIImage(systemName: Constant.fullnameImageName))
         textField.autocorrectionType = .no
         textField.snp.makeConstraints { $0.height.equalTo(48) }
         return textField

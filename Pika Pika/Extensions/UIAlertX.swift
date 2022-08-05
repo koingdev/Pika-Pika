@@ -23,7 +23,7 @@ extension UIAlertController {
     
     static func deleteConfirmation(completion: Block = nil) {
         UIAlertController.Builder()
-            .withTitleAndMessage(title: "Are you sure want to delete this?")
+            .withTitleAndMessage(title: "Delete Post", message: "Are you sure want to delete this?")
             .addCancelAction()
             .addAction(title: "Delete", style: .destructive, completion: completion)
             .show()

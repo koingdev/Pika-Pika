@@ -10,6 +10,16 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
+    private struct Constant {
+        static let imageViewName = "PikachuWelcome"
+        static let emailPlaceholder = "Email"
+        static let emailImageName = "envelope.fill"
+        static let passwordPlaceholder = "Password"
+        static let passwordImageName = "lock.fill"
+        static let loginButtonTitle = "Login"
+        static let bottomText = ("Don't have an account?", "Register")
+    }
+    
     let viewModel: AuthenticationViewModel
     
     init(viewModel: AuthenticationViewModel = AuthenticationViewModel.shared) {
@@ -30,11 +40,11 @@ class LoginViewController: UIViewController {
     ////////////////////////////////////////////////////////////////
 
     open var authenticateButtonTitle: String {
-        "Login"
+        Constant.loginButtonTitle
     }
 
     open var bottomLabelText: (String, String) {
-        ("Don't have an account?", "Register")
+        Constant.bottomText
     }
     
     open var stackChildrens: [UIView] {
@@ -61,7 +71,7 @@ class LoginViewController: UIViewController {
     
     
     private lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "PikachuWelcome"))
+        let imageView = UIImageView(image: UIImage(named: Constant.imageViewName))
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
@@ -73,7 +83,7 @@ class LoginViewController: UIViewController {
     }()
 
     private(set) lazy var emailTextField: TextField = {
-        let textField = TextField(placeholder: "Email", leftIcon: UIImage(systemName: "envelope.fill"))
+        let textField = TextField(placeholder: Constant.emailPlaceholder, leftIcon: UIImage(systemName: Constant.emailImageName))
         textField.autocapitalizationType = .none
         textField.keyboardType = .emailAddress
         textField.snp.makeConstraints { $0.height.equalTo(48) }
@@ -81,7 +91,7 @@ class LoginViewController: UIViewController {
     }()
     
     private(set) lazy var passwordTextField: TextField = {
-        let textField = TextField(placeholder: "Password", leftIcon: UIImage(systemName: "lock.fill"))
+        let textField = TextField(placeholder: Constant.passwordPlaceholder, leftIcon: UIImage(systemName: Constant.passwordImageName))
         textField.isSecureTextEntry = true
         textField.snp.makeConstraints { $0.height.equalTo(48) }
         return textField
@@ -158,7 +168,7 @@ class LoginViewController: UIViewController {
         }
     }
     
-    /// Observe the keyboard to automatically push the content
+    /// Observe the keyboard to automatically push the content to prevent keyboard hiding the content
     private func setupKeyboardObserver() {
         // Will Show
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: OperationQueue.main) { [weak self] notification in

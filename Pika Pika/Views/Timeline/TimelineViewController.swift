@@ -12,10 +12,12 @@ import Kingfisher
 
 final class TimelineViewController: UIViewController {
     
+    private struct Constant {
+        static let brandingImageName = "PikaPika"
+    }
+    
     private var datasource: [Feed] = []
-    
     private let viewModel = TimelineViewModel()
-    
     
     deinit {
         debugPrint("DEINIT: \(Self.self)")
@@ -29,7 +31,7 @@ final class TimelineViewController: UIViewController {
     
     private lazy var brandingImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "PikaPika")
+        imageView.image = UIImage(named: Constant.brandingImageName)
         imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
         imageView.snp.makeConstraints { make in
