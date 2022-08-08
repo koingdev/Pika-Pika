@@ -106,7 +106,7 @@ class AuthenticationViewModelTest: XCTestCase {
     }
     
     
-    func testIsValidWithValidCredential() {
+    func testIsValidWithInvalidCredential() {
         // Given
         let invalidEmail = "abc@abc"
         let validPassword = "123"
@@ -118,16 +118,16 @@ class AuthenticationViewModelTest: XCTestCase {
         XCTAssertTrue(result == false)
     }
     
-    func testIsValidWithInvalidCredential() {
+    func testIsValidWithValidCredential() {
         // Given
-        let invalidEmail = "abc@abc"
+        let validEmail = "abc@abc.com"
         let validPassword = "123456"
         
         // When
-        let result = viewModel.isValid(email: invalidEmail, password: validPassword)
+        let result = viewModel.isValid(email: validEmail, password: validPassword)
         
         // Then
-        XCTAssertTrue(result == false)
+        XCTAssertTrue(result == true)
     }
 
 }

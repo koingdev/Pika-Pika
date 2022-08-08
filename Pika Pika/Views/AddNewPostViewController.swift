@@ -34,7 +34,6 @@ final class AddNewPostViewController: UIViewController {
     
     private lazy var textView: UITextView = {
         let textView = UITextView()
-        textView.autocorrectionType = .no
         textView.textContainer.maximumNumberOfLines = 10
         textView.textContainer.lineBreakMode = .byTruncatingTail
         textView.font = .boldSystemFont(ofSize: 24)

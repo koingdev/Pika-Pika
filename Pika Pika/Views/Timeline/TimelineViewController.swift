@@ -42,6 +42,14 @@ final class TimelineViewController: UIViewController {
         return imageView
     }()
     
+    private lazy var loadinIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        view.addSubview(indicator)
+        indicator.center = view.center
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
     private let refreshControl = UIRefreshControl()
     
     private lazy var tableView: UITableView = {
@@ -77,17 +85,20 @@ final class TimelineViewController: UIViewController {
 
     private func setup() {
         view.backgroundColor = .white
+        _ = loadinIndicator
         _ = brandingImageView
         refreshControl.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
     }
     
     private func fetch() {
+        loadinIndicator.startAnimating()
         Task.detached { [self] in
             let result = await self.viewModel.fetch()
             Task { @MainActor in
                 self.datasource = result
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
+                self.loadinIndicator.stopAnimating()
             }
         }
     }
