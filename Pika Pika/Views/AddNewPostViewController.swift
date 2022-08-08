@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class AddNewPostViewController: UIViewController {
     
@@ -120,10 +121,24 @@ final class AddNewPostViewController: UIViewController {
         }
         
         submitButton.on(.touchUpInside) { [weak self] _ in
-            if let feed = self?.viewModel.prepareFeed(description: self?.textView.text, image: self?.imageView.image) {
-                self?.didTappedSubmit?(feed)
-                self?.dismiss(animated: true)
-            }
+            self?.submit()
+        }
+    }
+    
+    private func submit() {
+        var feed: Feed?
+        if let image = imageView.image, let data = image.jpegData(compressionQuality: 0.7) {
+            // Downsamping the image to reduce size in MB and avoid laggy scroll with large image size
+            let downsampledSize = viewModel.calculateImageAspectSize(size: image.size)
+            let downsampledImage = KingfisherWrapper.downsampledImage(data: data, to: downsampledSize, scale: UIScreen.main.scale)
+            feed = viewModel.prepareFeed(description: textView.text, image: downsampledImage)
+        } else {
+            feed = viewModel.prepareFeed(description: textView.text, image: nil)
+        }
+
+        if let feed = feed {
+            didTappedSubmit?(feed)
+            dismiss(animated: true)
         }
     }
     

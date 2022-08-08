@@ -13,7 +13,7 @@ struct Feed: Decodable {
     @DocumentID var id: ID?
     let description: String
     var imageURL: String?
-    var imageAspectHeight: CGFloat? // Store aspectHeight to avoid computing on client
+    var imageAspectHeight: CGFloat? // Store aspectHeight to avoid re-computing on client
     let timestamp: Timestamp
     let uid: String
     var fullname: String    // Denormalization for read performance

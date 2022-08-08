@@ -24,15 +24,17 @@ final class AddNewPostViewModel {
 
         var feed = Feed.make(description: description, uid: uid, fullname: loggedInUser.fullname)
         if let image = image {
-            feed.imageData = image.jpegData(compressionQuality: 0.5)
-            feed.imageAspectHeight = calculateImageAspectHeight(image: image)
+            feed.imageData = image.jpegData(compressionQuality: 0.7)
+            feed.imageAspectHeight = calculateImageAspectSize(size: image.size).height
         }
         return feed
     }
     
-    private func calculateImageAspectHeight(image: UIImage) -> CGFloat {
-        let ratio = image.size.height / image.size.width
-        let aspectHeight = (UIScreen.main.bounds.width - 12) * ratio
-        return aspectHeight
+    func calculateImageAspectSize(size: CGSize) -> CGSize {
+        let padding = CGFloat(12)
+        let ratio = size.height / size.width
+        let width = (UIScreen.main.bounds.width - padding)
+        let aspectHeight = width * ratio
+        return CGSize(width: width, height: aspectHeight)
     }
 }
